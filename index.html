@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christian Matthews | CIO & IT Executive</title>
+
+  <!-- SEO / Social -->
+  <meta name="description" content="Christian Matthews — CIO-track IT Executive focused on scaling IT operations, M&A integration, and building profitable service delivery engines for growth-stage organizations." />
+  <meta property="og:title" content="Christian Matthews | CIO & IT Executive" />
+  <meta property="og:description" content="Scaling IT operations, M&A integration, and building profitable service delivery engines for growth-stage organizations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- React & ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!-- Babel (demo/single-file) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; }
+    .gradient-text {
+      background: linear-gradient(to right, #60a5fa, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .timeline-line {
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #334155;
+      z-index: 0;
+    }
+    @media (min-width: 768px) {
+      .timeline-line {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useMemo } = React;
+
+    // --- Icons ---
+    const Icon = ({ children, size = 24, className = "" }) => (
+      <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+        className={className}>
+        {children}
+      </svg>
+    );
+
+    const ArrowRight = (props) => <Icon {...props}><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></Icon>;
+    const Download = (props) => <Icon {...props}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></Icon>;
+    const Mail = (props) => <Icon {...props}><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></Icon>;
+    const Phone = (props) => <Icon {...props}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></Icon>;
+    const MapPin = (props) => <Icon {...props}><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></Icon>;
+    const TrendingUp = (props) => <Icon {...props}><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></Icon>;
+    const ShieldCheck = (props) => <Icon {...props}><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></Icon>;
+    const Globe = (props) => <Icon {...props}><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></Icon>;
+    const Users = (props) => <Icon {...props}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></Icon>;
+    const Briefcase = (props) => <Icon {...props}><rect width="20" height="14" x="2" y="7" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></Icon>;
+    const CheckCircle = (props) => <Icon {...props}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></Icon>;
+    const Target = (props) => <Icon {...props}><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></Icon>;
+    const DollarSign = (props) => <Icon {...props}><line x1="12" x2="12" y1="2" y2="22" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></Icon>;
+
+    // --- Components ---
+    const Nav = () => (
+      <nav className="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="text-xl font-bold tracking-tighter text-white">
+            CM<span className="text-blue-400">.</span>
+          </div>
+          <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+            <a href="#expertise" className="hover:text-blue-400 transition">Expertise</a>
+            <a href="#highlights" className="hover:text-blue-400 transition">Highlights</a>
+            <a href="#experience" className="hover:text-blue-400 transition">Track Record</a>
+            <a href="#playbook" className="hover:text-blue-400 transition">Playbooks</a>
+            <a href="#contact" className="hover:text-blue-400 transition">Contact</a>
+          </div>
+          <a href="#contact" className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium transition flex items-center gap-2">
+            <Mail size={14} /> Connect
+          </a>
+        </div>
+      </nav>
+    );
+
+    const Hero = () => (
+      <section className="relative pt-32 pb-16 px-6 min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20">
+          <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-blue-600 rounded-full blur-[100px]"></div>
+          <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-teal-500 rounded-full blur-[100px]"></div>
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10 text-center">
+          <div className="inline-block px-3 py-1 mb-6 rounded-full bg-slate-800 border border-slate-700 text-blue-400 text-xs font-bold tracking-widest uppercase">
+            Executive Portfolio
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            Transforming <span className="serif italic text-slate-400">Complexity</span><br />
+            Into <span className="gradient-text">Scalable Growth</span>
+          </h1>
+          <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+            CIO-track IT Executive focused on scaling operations, M&A integration, and building profitable service delivery engines for growth-stage organizations.
+          </p>
+
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+            <a href="#experience" className="bg-white text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-slate-200 transition flex items-center gap-2">
+              View Track Record <ArrowRight size={18} />
+            </a>
+
+            <a
+              href="/Christian_Matthews_CIO_Resume.pdf"
+              download
+              className="px-8 py-3 rounded-full border border-slate-700 text-slate-300 hover:bg-slate-800 transition flex items-center gap-2"
+            >
+              <Download size={18} /> Download Resume (PDF)
+            </a>
+          </div>
+
+          <div className="mt-10 text-slate-500 text-sm">
+            Florence, SC • Remote-first • Select travel
+          </div>
+        </div>
+      </section>
+    );
+
+    const Metrics = () => {
+      const stats = useMemo(() => ([
+        { label: "Practice Target", value: "$5.6M", sub: "Enterprise Networking (co-owned)", icon: <TrendingUp className="text-green-400" /> },
+        { label: "Field Services", value: "$1.6M", sub: "Dedicated 2026 target (spin-out)", icon: <TrendingUp className="text-blue-400" /> },
+        { label: "Budget Managed", value: "$2.1M", sub: "Global IT Operations", icon: <DollarSign className="text-teal-400" /> },
+        { label: "M&A Scale", value: "250+", sub: "Locations integrated", icon: <Globe className="text-purple-400" /> },
+      ]), []);
+
+      return (
+        <section className="py-10 border-y border-slate-800 bg-slate-900/50 backdrop-blur-sm">
+          <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, idx) => (
+              <div key={idx} className="text-center group hover:-translate-y-1 transition duration-300">
+                <div className="flex justify-center mb-3 opacity-80 group-hover:opacity-100 transition">{stat.icon}</div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-sm font-semibold text-slate-300">{stat.label}</div>
+                <div className="text-xs text-slate-500 mt-1">{stat.sub}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    };
+
+    const Philosophy = () => (
+      <section id="expertise" className="py-24 px-6 bg-slate-900">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              The Builder Mindset
+            </h2>
+            <p className="text-slate-400 mb-6 leading-relaxed">
+              I build the operational engines that allow mid-market companies to scale—turning fragmented delivery into repeatable, measurable systems.
+            </p>
+            <p className="text-slate-400 mb-8 leading-relaxed">
+              My focus is equal parts execution and economics: P&L alignment, utilization, service maturity, and the technical frameworks to support aggressive growth.
+            </p>
+
+            <div className="space-y-4">
+              {[
+                "Strategic operations & turnarounds",
+                "Practice building & revenue enablement",
+                "M&A integration playbooks for repeatable delivery",
+                "Vendor consolidation & cost control"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <CheckCircle size={20} className="text-blue-500" />
+                  <span className="text-slate-200 font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="glass-card p-6 rounded-2xl">
+              <Target size={32} className="text-blue-400 mb-4" />
+              <h3 className="text-white font-bold text-lg mb-2">Strategy</h3>
+              <p className="text-sm text-slate-400">Roadmapping for growth + acquisitions.</p>
+            </div>
+
+            <div className="glass-card p-6 rounded-2xl mt-8">
+              <Users size={32} className="text-teal-400 mb-4" />
+              <h3 className="text-white font-bold text-lg mb-2">Leadership</h3>
+              <p className="text-sm text-slate-400">Owning delivery teams and standards end-to-end.</p>
+            </div>
+
+            <div className="glass-card p-6 rounded-2xl">
+              <Briefcase size={32} className="text-purple-400 mb-4" />
+              <h3 className="text-white font-bold text-lg mb-2">Commercial</h3>
+              <p className="text-sm text-slate-400">Practice targets, utilization, and margin control.</p>
+            </div>
+
+            <div className="glass-card p-6 rounded-2xl mt-8">
+              <Globe size={32} className="text-green-400 mb-4" />
+              <h3 className="text-white font-bold text-lg mb-2">Scale</h3>
+              <p className="text-sm text-slate-400">M&A integration playbooks at enterprise volume.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+
+    const Highlights = () => (
+      <section id="highlights" className="py-20 px-6 bg-slate-950 border-t border-slate-800">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Resume Highlights</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto">
+              The fast scan a CEO / board actually wants.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: "P&L + Practice Growth",
+                body: "Co-owned Enterprise Networking against a $5.6M practice target while creating a net-new Field Services division forecasted at $1.6M for 2026."
+              },
+              {
+                title: "Delivery Ownership",
+                body: "Owned enterprise networking consultants and site implementation engineers across high-stakes accounts, maintaining delivery standards and executive escalation coverage."
+              },
+              {
+                title: "Operational Efficiency",
+                body: "Reduced third-party dependency by insourcing ‘smart hands’ delivery and building repeatable playbooks for consistent execution."
+              },
+              {
+                title: "M&A Integration at Scale",
+                body: "Standardized and integrated 250+ acquired locations using runbooks for network, infrastructure, and application cutovers."
+              }
+            ].map((h, idx) => (
+              <div key={idx} className="glass-card p-8 rounded-2xl hover:border-blue-500/30 transition">
+                <h3 className="text-white font-bold text-lg mb-2">{h.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{h.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+
+    const ExperienceItem = ({ role, company, period, description, highlights, isRight }) => (
+      <div className={`relative mb-12 md:mb-0 w-full md:w-1/2 ${isRight ? 'md:ml-auto md:pl-12' : 'md:pr-12'}`}>
+        <div className={`hidden md:block absolute top-6 w-4 h-4 rounded-full border-4 border-slate-900 bg-blue-500 z-10 ${isRight ? '-left-[10px]' : '-right-[10px]'}`}></div>
+
+        <div className="glass-card p-8 rounded-xl hover:border-blue-500/30 transition duration-300">
+          <h3 className="text-xl font-bold text-white mb-1">{role}</h3>
+          <div className="text-blue-400 font-medium">{company}</div>
+          <div className="text-slate-500 text-sm mb-4">{period}</div>
+
+          <p className="text-slate-400 text-sm mb-6 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+            {description}
+          </p>
+
+          <ul className="space-y-2">
+            {highlights.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
+                <span className="text-blue-500 mt-1">▹</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
+
+    const Timeline = () => (
+      <section id="experience" className="py-24 px-6 bg-slate-950 relative">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Strategic Trajectory</h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">
+            From Architect to Director to commercial operations leadership.
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto relative">
+          <div className="timeline-line hidden md:block"></div>
+
+          {/* BURWOOD: BMS */}
+          <ExperienceItem
+            isRight={false}
+            role="Operations Engineering Lead (BMS) | NOC & Service Desk"
+            company="Burwood Group"
+            period="Jan 2026 – Present"
+            description="Selected by ownership to pilot a blended P&L model and stabilize Managed Services operations as a blueprint for scalable utilization across practices."
+            highlights={[
+              "Leading an ownership-sponsored pilot blending Professional Services + Managed Services P&L to improve utilization of bench salary across practices (Voice, Cloud, Security, EUC).",
+              "Owning NOC and Service Desk operating cadence: service definitions, escalation paths, QA expectations, and performance standards.",
+              "Coaching up / coaching out talent to elevate technical competency and reduce noise in day-to-day operations.",
+              "Repositioning a historically underdeveloped Service Desk into a scalable offering (currently a small client base) with clear guardrails for growth.",
+              "Driving operational readiness for expanded client acquisition while maintaining stability and predictable delivery."
+            ]}
+          />
+
+          {/* BURWOOD: PRACTICE LEAD */}
+          <ExperienceItem
+            isRight={true}
+            role="Practice Lead | Enterprise Networking & Field Services"
+            company="Burwood Group"
+            period="Aug 2024 – Dec 2025"
+            description="Co-owned Enterprise Networking delivery and targets while founding and scaling a net-new Field Services division into a dedicated 2026 revenue stream."
+            highlights={[
+              "Co-managed delivery and growth accountability for Enterprise Networking against a $5.6M annual practice target while independently creating a net-new Field Services revenue stream.",
+              "Owned enterprise networking consultants and site implementation engineers: hiring, staffing, performance management, and delivery quality across multiple accounts.",
+              "Built the Field Services practice from an initial bench of 5 to 25 direct reports to eliminate third-party margin leakage and control last-mile quality.",
+              "Defined the operating model that established Field Services as a dedicated $1.6M gross revenue target for 2026, including pricing, standards, and delivery guardrails.",
+              "Partnered with Solutions Architects on $1M+ pursuits, providing scoping confidence, delivery architecture, and execution assurance for Platinum-tier clients."
+            ]}
+          />
+
+          {/* BURWOOD: TEAM LEAD */}
+          <ExperienceItem
+            isRight={false}
+            role="Team Lead | Enterprise Networking"
+            company="Burwood Group"
+            period="Mar 2024 – Aug 2024"
+            description="Led Enterprise Networking delivery while serving as the lead architect and escalation point for high-stakes enterprise implementations."
+            highlights={[
+              "Directly managed enterprise networking consultants (CCNA/CCNP) with accountability for utilization, delivery quality, and customer outcomes.",
+              "Co-owned delivery execution against a $5.6M practice target, aligning staffing to pipeline and in-flight commitments.",
+              "Served as lead technical architect for the firm’s largest account, driving standardization and repeatable implementation outcomes.",
+              "Owned escalation coverage for complex implementations across healthcare, finance, and retail environments (multi-billion-dollar clients).",
+              "Built internal delivery guardrails and handoff standards to reduce rework and stabilize client delivery experience."
+            ]}
+          />
+
+          {/* BURWOOD: ARCHITECT */}
+          <ExperienceItem
+            isRight={true}
+            role="Technical Architect (Contractor)"
+            company="Burwood Group"
+            period="Feb 2023 – Feb 2024"
+            description="Strategic entry point: engaged to lead enterprise-scale M&A integrations and create repeatable runbooks that became the delivery standard."
+            highlights={[
+              "Architected modernization for 250+ acquired sites, standardizing Aruba Central, VeloCloud 620s, ESXi, and backup continuity to reduce variance across integrations.",
+              "Led complex PIMS migrations and designed zero-data-loss workflows for database transfer and in-place upgrades during cutovers.",
+              "Authored the integration playbook adopted as the project standard and later mirrored by peer vendors on shared engagements.",
+              "Identified structural cost inefficiencies in outsourced ‘smart hands’ delivery, forming the business case for insourcing via Field Services.",
+              "Established repeatable runbooks, QA checkpoints, and escalation patterns that improved delivery predictability during high-velocity acquisition cycles."
+            ]}
+          />
+
+          {/* EXPLORE */}
+          <ExperienceItem
+            isRight={false}
+            role="Global IT Director"
+            company="Explore Industries / Leisure Pools"
+            period="2020 – 2023"
+            description="Promoted to executive owner for global infrastructure, security, and IT operations."
+            highlights={[
+              "Owned a $2.1M operational IT budget and global vendor strategy across manufacturing operations.",
+              "Delivered $500K in savings through global network redesign, consolidation, and recurring subscription cost reduction.",
+              "Built global help desk standards using Jira ITSM + Confluence; standardized workflows, policies, and knowledge management.",
+              "Developed acquisition deployment roadmaps and greenfield implementation patterns for new sites and facilities.",
+              "Strengthened continuity through equipment retention strategy during supply chain disruption and rapid business growth."
+            ]}
+          />
+
+          <ExperienceItem
+            isRight={true}
+            role="IT Support Manager, North America"
+            company="Explore Industries / Leisure Pools"
+            period="2020 (pre-promotion)"
+            description="Stabilized North American operations during acquisition transition; promoted into Global IT Director scope."
+            highlights={[
+              "Stabilized support operations during acquisition transition and established clearer service ownership across locations.",
+              "Created early structure for service intake, triage, and escalation that matured into global service standards.",
+              "Delivered immediate operational impact and visibility, resulting in rapid promotion to Global IT Director.",
+              "Improved consistency of endpoint and user support across manufacturing + corporate environments.",
+              "Established foundational reporting and operational cadence for executive visibility into IT performance."
+            ]}
+          />
+
+          {/* BENETEAU */}
+          <ExperienceItem
+            isRight={false}
+            role="Senior Network Administrator"
+            company="Beneteau"
+            period="2017 – 2020"
+            description="Owned North American network modernization and infrastructure reliability for a global manufacturer."
+            highlights={[
+              "Upgraded MPLS to VeloCloud SD-WAN, achieving 100% uptime for mission-critical services.",
+              "Consolidated five acquired domains into a single corporate environment to reduce complexity and improve security posture.",
+              "Managed DR and backup strategy for 40+ VMware servers (VEEAM/LTO).",
+              "Modernized telephony: replaced 1999-era PBX with cloud-hosted solution and engineered DECT system for 70+ manufacturing users.",
+              "Improved infrastructure reliability and operational consistency across manufacturing and corporate operations."
+            ]}
+          />
+
+          {/* SEA ISLAND */}
+          <ExperienceItem
+            isRight={true}
+            role="Director of IT"
+            company="Sea Island Resort"
+            period="Nov 2016 – Nov 2017"
+            description="Directed IT operations for a premier luxury destination with 24/7 guest services and high-profile events."
+            highlights={[
+              "Led secure IT and event technology support for VIP guests and high-security visits.",
+              "Directed service delivery for always-on guest operations with strict uptime and responsiveness expectations.",
+              "Managed high-stakes live event technology and secure communications requirements.",
+              "Coordinated multi-team execution for simultaneous guest operations and event delivery.",
+              "Maintained operational stability while supporting premium guest experience standards."
+            ]}
+          />
+
+          {/* WINDSTREAM */}
+          <ExperienceItem
+            isRight={false}
+            role="Rapid Ascent: Analyst → Team Lead"
+            company="Windstream"
+            period="2015 – 2016"
+            description="Fast-tracked through multiple promotions in an ISP/NOC environment."
+            highlights={[
+              "Promoted from Network Analyst II to NOC Team Lead in under 12 months.",
+              "Led enterprise VoIP/network troubleshooting and escalation workflows in an ISP-grade operations environment.",
+              "Owned shift execution, quality expectations, and performance coaching for operational teams.",
+              "Built foundational leadership experience in high-volume incident response environments.",
+              "Strengthened operational rigor through clear escalation paths and consistent triage patterns."
+            ]}
+          />
+        </div>
+      </section>
+    );
+
+    const Playbook = () => (
+      <section id="playbook" className="py-24 px-6 bg-slate-900 border-t border-slate-800">
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Operating Playbooks</h2>
+          <p className="text-slate-400">
+            I don’t just solve problems once. I build repeatable systems that scale.
+          </p>
+        </div>
+
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+          <div className="glass-card p-8 rounded-xl border-t-4 border-blue-500">
+            <div className="uppercase tracking-widest text-xs font-bold text-blue-400 mb-4">Case Study: M&A Scale</div>
+            <h3 className="text-2xl font-bold text-white mb-4">The 250+ Site Cutover</h3>
+            <p className="text-slate-300 text-sm mb-6 leading-relaxed">
+              <strong>Challenge:</strong> A national healthcare platform needed to integrate 250+ acquired locations with inconsistent legacy stacks.
+              <br /><br />
+              <strong>Solution:</strong> Built a standardized runbook spanning Aruba Central, VeloCloud, ESXi, and PIMS data migration—enabling scalable execution while maintaining data integrity.
+              <br /><br />
+              <strong>Result:</strong> Improved predictability and consistency across integrations; playbook became the delivery standard and was later mirrored by peer vendors on shared engagements.
+            </p>
+          </div>
+
+          <div className="glass-card p-8 rounded-xl border-t-4 border-teal-500">
+            <div className="uppercase tracking-widest text-xs font-bold text-teal-400 mb-4">Case Study: Commercial Innovation</div>
+            <h3 className="text-2xl font-bold text-white mb-4">In-Sourcing Revenue</h3>
+            <p className="text-slate-300 text-sm mb-6 leading-relaxed">
+              <strong>Challenge:</strong> Margin leakage and inconsistent quality from third-party contractors for last-mile “smart hands” delivery.
+              <br /><br />
+              <strong>Solution:</strong> Built an internal Field Services practice, defined operating standards, and scaled the bench from 5 to 25.
+              <br /><br />
+              <strong>Result:</strong> Created a net-new revenue stream that became a dedicated $1.6M gross target for 2026 and improved control over delivery quality.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+
+    const Contact = () => (
+      <section id="contact" className="py-20 px-6 bg-slate-950">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-white mb-8">Connect</h2>
+          <p className="text-slate-400 mb-10">
+            Exploring CIO and senior leadership roles in growth-stage organizations (250–1,500 employees).
+          </p>
+
+          <div className="flex flex-col md:flex-row justify-center gap-6">
+            <div className="flex items-center justify-center gap-3 text-slate-300 bg-slate-900 px-6 py-4 rounded-lg border border-slate-800">
+              <Mail className="text-blue-500" />
+              <a href="mailto:christianmatthews@outlook.com" className="underline decoration-slate-700 hover:decoration-blue-500 transition">
+                christianmatthews@outlook.com
+              </a>
+            </div>
+
+            <div className="flex items-center justify-center gap-3 text-slate-300 bg-slate-900 px-6 py-4 rounded-lg border border-slate-800">
+              <Phone className="text-blue-500" />
+              <a href="tel:+18434538363" className="underline decoration-slate-700 hover:decoration-blue-500 transition">
+                (843) 453-8363
+              </a>
+            </div>
+
+            <div className="flex items-center justify-center gap-3 text-slate-300 bg-slate-900 px-6 py-4 rounded-lg border border-slate-800">
+              <MapPin className="text-blue-500" />
+              <span>Florence, SC (Remote-first • Select travel)</span>
+            </div>
+          </div>
+
+          <div className="mt-12 text-slate-600 text-sm">
+            &copy; 2026 Christian Matthews. Built with React & Tailwind.
+          </div>
+        </div>
+      </section>
+    );
+
+    const App = () => (
+      <div className="antialiased selection:bg-blue-500 selection:text-white">
+        <Nav />
+        <Hero />
+        <Metrics />
+        <Philosophy />
+        <Highlights />
+        <Timeline />
+        <Playbook />
+        <Contact />
+      </div>
+    );
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
