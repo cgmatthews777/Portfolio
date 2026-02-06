@@ -140,18 +140,18 @@
           <div className="flex flex-col md:flex-row items-center justify-center gap-4">
              <a
               href="Christian_Matthews_CIO_CV_2026.pdf" 
-              download
+              target="_blank" rel="noopener noreferrer"
               className="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-slate-200 transition flex items-center gap-2"
             >
-              <Download size={18} /> Download Resume
+              <Download size={18} /> Resume
             </a>
 
             <a
               href="Christian_Matthews_CIO_Cover_Letter_2026.pdf" 
-              download
+              target="_blank" rel="noopener noreferrer"
               className="px-6 py-3 rounded-full border border-slate-700 text-slate-300 hover:bg-slate-800 transition flex items-center gap-2"
             >
-              <FileText size={18} /> Download Cover Letter
+              <FileText size={18} /> Cover Letter
             </a>
           </div>
         </div>
@@ -183,7 +183,7 @@
       );
     };
 
-    const ExperienceItem = ({ role, subRole, company, domain, period, description, highlights, isRight, brandColor }) => {
+    const ExperienceItem = ({ role, subRole, company, logoUrl, period, description, highlights, isRight, brandColor }) => {
       // Logic to handle image load errors by showing a fallback box
       const [imgError, setImgError] = useState(false);
 
@@ -205,11 +205,12 @@
               </div>
               
               {/* Logo Logic: Show image if available, otherwise show fallback initial with Brand Color */}
-              {domain && !imgError ? (
-                  <div className="flex-shrink-0 bg-white p-1 rounded-lg h-12 w-12 flex items-center justify-center overflow-hidden border border-slate-700/50 shadow-lg">
+              {logoUrl && !imgError ? (
+                  <div className="flex-shrink-0 bg-white p-1 rounded-lg h-16 w-16 flex items-center justify-center overflow-hidden border border-slate-700/50 shadow-lg relative">
                       <img 
-                          src={`https://logo.clearbit.com/${domain}`} 
+                          src={logoUrl} 
                           alt={`${company} logo`} 
+                          referrerPolicy="no-referrer"
                           className="max-w-full max-h-full object-contain" 
                           onError={() => setImgError(true)}
                       />
@@ -217,10 +218,10 @@
               ) : (
                   // Fallback: Box is BRAND COLOR, Text is WHITE
                   <div 
-                    className="flex-shrink-0 p-1 rounded-lg h-12 w-12 flex items-center justify-center border border-slate-700 shadow-lg"
+                    className="flex-shrink-0 p-1 rounded-lg h-16 w-16 flex items-center justify-center border border-slate-700 shadow-lg"
                     style={{ backgroundColor: brandColor || '#334155' }}
                   >
-                      <span className="text-white font-bold text-lg">{company.charAt(0)}</span>
+                      <span className="text-white font-bold text-2xl">{company.charAt(0)}</span>
                   </div>
               )}
             </div>
@@ -264,7 +265,7 @@
             role="Operations Engineering Lead"
             subRole="NOC & Service Desk"
             company="Burwood Group"
-            domain="burwood.com"
+            logoUrl="https://images.squarespace-cdn.com/content/v1/5a09abcb90bcce4bd5518c91/1515690831119-YJSK13DSLY1DM9RY7WWC/burwood-logo.png?format=1500w"
             brandColor="#16a34a" 
             period="Jan 2026 – Present"
             description="Selected by ownership to pilot a blended P&L integration between Professional Services and Managed Services."
@@ -281,7 +282,7 @@
             role="Practice Lead"
             subRole="Enterprise Networking & Field Services"
             company="Burwood Group"
-            domain="burwood.com"
+            logoUrl="https://images.squarespace-cdn.com/content/v1/5a09abcb90bcce4bd5518c91/1515690831119-YJSK13DSLY1DM9RY7WWC/burwood-logo.png?format=1500w"
             brandColor="#16a34a"
             period="Aug 2024 – Dec 2025"
             description="Founded and scaled Field Services while retaining delivery accountability for Enterprise Networking."
@@ -300,7 +301,7 @@
             role="Team Lead"
             subRole="Enterprise Networking"
             company="Burwood Group"
-            domain="burwood.com"
+            logoUrl="https://images.squarespace-cdn.com/content/v1/5a09abcb90bcce4bd5518c91/1515690831119-YJSK13DSLY1DM9RY7WWC/burwood-logo.png?format=1500w"
             brandColor="#16a34a"
             period="Mar 2024 – Aug 2024"
             description="Simultaneously led senior consultants while serving as lead architect/escalation for major accounts."
@@ -317,7 +318,7 @@
             role="Technical Architect"
             subRole="(Contractor)"
             company="Burwood Group"
-            domain="burwood.com"
+            logoUrl="https://images.squarespace-cdn.com/content/v1/5a09abcb90bcce4bd5518c91/1515690831119-YJSK13DSLY1DM9RY7WWC/burwood-logo.png?format=1500w"
             brandColor="#16a34a"
             period="Feb 2023 – Feb 2024"
             description="Recruited specifically to lead critical M&A integrations for the firm’s newly signed and largest account (1,000+ locations requiring a complex 250-site migration)."
@@ -335,7 +336,7 @@
             role="Global IT Director"
             subRole="(Promoted from IT Support Manager, North America)"
             company="Explore Industries / Leisure Pools"
-            domain="exploreindustries.com"
+            logoUrl="https://exploreindustries.com/wp-content/uploads/2022/02/Logo_ExploreIndustries-400x100.png"
             brandColor="#000000"
             period="Oct 2020 – 2024"
             description="Recruited from Beneteau post-acquisition to professionalize global infrastructure and security."
@@ -352,7 +353,7 @@
             isRight={true}
             role="Senior Network Administrator"
             company="Beneteau"
-            domain="beneteau.com"
+            logoUrl="https://storage.googleapis.com/endurance-apps-liip/media/cache/beneteau_no_filter_grid_fs/6316efb35d7cbf6ae30574c1"
             brandColor="#002D72"
             period="Nov 2017 – Oct 2020"
             description="Recruited specifically to leverage Windstream carrier background to remediate North American infrastructure."
@@ -368,7 +369,7 @@
             isRight={false}
             role="Director of IT / Asst. Director of AV"
             company="Sea Island Resort"
-            domain="seaisland.com"
+            logoUrl="https://www.seaisland.com/content/uploads/2024/12/Sea-Island-640x768.png"
             brandColor="#897A5E"
             period="Nov 2016 – Nov 2017"
             description="Forbes Five-Star resort property valued at over $1B."
@@ -387,7 +388,7 @@
             role="Team Lead"
             subRole="Reseller & CLEC Support"
             company="Windstream Enterprise"
-            domain="windstream.com"
+            logoUrl="https://s23.q4cdn.com/443634105/files/WINFusionLogo-H-4C.png"
             brandColor="#4F2C80"
             period="Jun 2015 – Nov 2016"
             description="Promoted from Network VoIP Analyst II > Voice Analyst III > Reseller/CLEC Support Team Lead in <12 months."
@@ -463,7 +464,7 @@
            <div className="relative group mx-auto md:mx-0 order-first md:order-last">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl border-4 border-slate-800 shadow-2xl overflow-hidden relative z-10 bg-slate-800 grayscale group-hover:grayscale-0 transition duration-500">
                 <img 
-                  src="Signature Profile2.jpg" 
+                  src="profile.png" 
                   alt="Christian Matthews" 
                   className="w-full h-full object-cover"
                   onError={(e) => {
