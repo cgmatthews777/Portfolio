@@ -64,7 +64,7 @@
   <div id="root"></div>
 
   <script type="text/babel">
-    const { useMemo, useState } = React;
+    const { useMemo, useState, useRef } = React;
 
     // --- Icons ---
     const Icon = ({ children, size = 24, className = "" }) => (
@@ -156,7 +156,7 @@
             </a>
 
             <a
-              href="Christian_Matthews_CIO_Cover_Letter_2026.pdf" 
+              href="Christian_Matthews_CIO_CV_2026-merged.pdf" 
               target="_blank" rel="noopener noreferrer"
               className="px-6 py-3 rounded-full border border-slate-700 text-slate-300 hover:bg-slate-800 transition flex items-center gap-2"
             >
@@ -314,7 +314,7 @@
             logoUrl="https://images.squarespace-cdn.com/content/v1/5a09abcb90bcce4bd5518c91/1515690831119-YJSK13DSLY1DM9RY7WWC/burwood-logo.png?format=1500w"
             brandColor="#16a34a"
             period="Mar 2024 – Aug 2024"
-            description="Role created after one year of high-impact delivery as technical architect/delivery lead on the firm’s largest account, combining team leadership with ongoing hands-on execution."
+            description="Simultaneously led senior consultants while serving as lead architect/escalation for major accounts."
             highlights={[
               { title: "Dual-Role Leadership", body: "Balanced the player-coach model by managing team capacity and utilization against a $5.6M practice target while personally billing as a Technical Architect and delivery lead on complex engagements." },
               { title: "High-Touch Enterprise Escalation", body: "Served as the primary technical backstop for high-complexity enterprise clients, stepping in when delivery exceeded standard VAR capabilities and required deep architectural judgment." },
@@ -388,7 +388,7 @@
             logoUrl="https://www.seaisland.com/content/uploads/2024/12/Sea-Island-640x768.png"
             brandColor="#897A5E"
             period="Nov 2016 – Nov 2017"
-            description="Recruited based on a rare blend of hands-on IT support roots, carrier-grade network engineering, technology leadership, and professional audio/AV production experience, well suited for a Forbes Five-Star luxury resort consolidating IT and AV under a new P&L model."
+            description="Forbes Five-Star resort property valued at over $1B."
             highlights={[
               { title: "High-Stakes Event Support", body: "Coordinated technology delivery for high-grossing corporate events (>$5M revenue), including PGA Tour events and automotive board meetings." },
               { title: "Government/VIP Security", body: "Partnered directly with the Secret Service and FBI to implement segmented VLANs and secure Wi-Fi for high-profile government officials and VIP guests." },
@@ -407,7 +407,7 @@
             logoUrl="https://s23.q4cdn.com/443634105/files/WINFusionLogo-H-4C.png"
             brandColor="#4F2C80"
             period="Jun 2015 – Nov 2016"
-            description="Promoted from Network VoIP Analyst II to Voice Analyst III to Reseller/CLEC Support Team Lead in <12 months."
+            description="Promoted from Network VoIP Analyst II > Voice Analyst III > Reseller/CLEC Support Team Lead in <12 months."
             highlights={[
               { title: "Rapid Ascent", body: "Selected to lead the newly formed CLEC support division in Greenville, SC, based on execution velocity and technical judgment." },
               { title: "Revenue Protection", body: "Managed high-stakes technical operations for wholesale/CLEC partners where individual accounts carried >$2,000,000/month billing exposure." },
@@ -416,6 +416,39 @@
               { title: "Wholesale Network Ownership", body: "Owned end-to-end technical responsibility for reseller and CLEC environments, from provisioning through live-traffic stabilization, under strict SLA and penalty exposure." }
             ]}
           />
+          
+          {/* EARLY CAREER FOUNDATION */}
+          <div className="relative mb-16 md:mb-0 w-full md:w-1/2 md:pr-12">
+            <div className="hidden md:block absolute top-6 -right-[10px] w-4 h-4 rounded-full border-4 border-slate-900 bg-slate-500 z-10"></div>
+            
+            <div className="glass-card p-8 rounded-xl hover:border-blue-500/30 transition duration-300">
+              <h3 className="text-xl font-bold text-white mb-6 leading-tight">Early Career Foundation</h3>
+              
+              <div className="mb-6">
+                 <div className="text-blue-400 font-medium">IT Support Specialist</div>
+                 <div className="text-slate-400 text-sm">Sonoco (Fortune 500 Manufacturing) | 2014</div>
+                 <p className="text-slate-400 text-sm mt-2 leading-relaxed">
+                   Frontline IT support in a safety-critical manufacturing environment, building early fluency in enterprise standards, asset control, and disciplined service delivery. Those principles later made me the person leadership relied on during COVID-era hypergrowth, when we were onboarding new hires daily and 16-week Dell and Lenovo lead times threatened to stall the business.
+                </p>
+              </div>
+
+              <div className="mb-6">
+                 <div className="text-blue-400 font-medium">IT Help Desk Technician</div>
+                 <div className="text-slate-400 text-sm">Florence-Darlington Tech. College | 2013</div>
+                 <p className="text-slate-400 text-sm mt-2 leading-relaxed">
+                   Recommended directly by my professors after my first semester to support campus IT operations. Built strong fundamentals in end-user support, troubleshooting, documentation, and public-sector systems that formed the foundation for everything that followed.
+                </p>
+              </div>
+
+              <div>
+                <div className="text-blue-400 font-medium">Customer Service & Client-Facing Foundations</div>
+                <div className="text-slate-400 text-sm">Retail, Hospitality & Instruction | 2010–2013</div>
+                <p className="text-slate-400 text-sm mt-2 leading-relaxed">
+                  Built early service discipline and client communication skills through roles as a private music instructor and positions at Best Buy, CVS, and Ruby Tuesday. Learned to manage expectations, stay composed under pressure, and deliver consistent outcomes in fast-paced, customer-facing environments.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     );
@@ -536,7 +569,7 @@
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-3 px-3 py-1 mb-6 rounded-full bg-slate-800 border border-slate-700 text-purple-400 text-xs font-bold tracking-widest uppercase">
-              Beyond the Boardroom
+              <Mic size={14} /> Beyond the Boardroom
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               The Engineer & The Creative
