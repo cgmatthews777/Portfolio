@@ -91,6 +91,9 @@
     const Clock = (props) => <Icon {...props}><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></Icon>;
     const FileText = (props) => <Icon {...props}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" x2="8" y1="13" y2="13" /><line x1="16" x2="8" y1="17" y2="17" /><polyline points="10 9 9 9 8 9" /></Icon>;
     const Anchor = (props) => <Icon {...props}><circle cx="12" cy="5" r="3" /><line x1="12" x2="12" y1="22" y2="8" /><path d="M5 12H2a10 10 0 0 0 20 0h-3" /></Icon>;
+    const Mic = (props) => <Icon {...props}><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /><line x1="8" x2="16" y1="22" y2="22" /></Icon>;
+    const Music = (props) => <Icon {...props}><path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" /></Icon>;
+    const Lightbulb = (props) => <Icon {...props}><line x1="9" x2="15" y1="18" y2="18" /><line x1="10" x2="14" y1="22" y2="22" /><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 9.5 6 4.65 4.65 0 0 0 8 15c0 1 1 2 2 3" /></Icon>;
 
     // --- Components ---
     const Nav = () => (
@@ -104,6 +107,7 @@
             <a href="#experience" className="hover:text-blue-400 transition">Track Record</a>
             <a href="#education" className="hover:text-blue-400 transition">Education</a>
             <a href="#about" className="hover:text-blue-400 transition">About</a>
+            <a href="#personal" className="hover:text-blue-400 transition">Personal</a>
             <a href="#contact" className="hover:text-blue-400 transition">Contact</a>
           </div>
           <div className="flex items-center gap-4">
@@ -152,7 +156,7 @@
             </a>
 
             <a
-              href="Christian_Matthews_CIO_CV_2026-merged.pdf" 
+              href="Christian_Matthews_CIO_Cover_Letter_2026.pdf" 
               target="_blank" rel="noopener noreferrer"
               className="px-6 py-3 rounded-full border border-slate-700 text-slate-300 hover:bg-slate-800 transition flex items-center gap-2"
             >
@@ -221,12 +225,13 @@
                       />
                   </div>
               ) : (
-                  // Fallback: Box is BRAND COLOR, Text is WHITE
+                  // Fallback: Box is WHITE, Text is BRAND COLOR
                   <div 
-                    className="flex-shrink-0 p-1 rounded-lg h-16 w-16 flex items-center justify-center border border-slate-700 shadow-lg"
-                    style={{ backgroundColor: brandColor || '#334155' }}
+                    className="flex-shrink-0 p-1 rounded-lg h-16 w-16 flex items-center justify-center border border-slate-700 shadow-lg bg-white"
                   >
-                      <span className="text-white font-bold text-2xl">{company.charAt(0)}</span>
+                      <span className="font-bold text-2xl" style={{ color: brandColor || '#334155' }}>
+                        {company.charAt(0)}
+                      </span>
                   </div>
               )}
             </div>
@@ -311,9 +316,11 @@
             period="Mar 2024 – Aug 2024"
             description="Simultaneously led senior consultants while serving as lead architect/escalation for major accounts."
             highlights={[
-              { title: "Dual-Role Leadership", body: "Balanced the 'Player-Coach' dynamic by managing resource allocation for the team against a $5.6M practice target while personally billing as a Technical Architect and project delivery lead." },
-              { title: "High-Stakes Escalation", body: "Served as the primary technical backstop for multi-billion dollar clients, stepping in to resolve 'white glove' architectural crises that junior consultants could not navigate." },
-              { title: "Technical QA", body: "Oversaw the delivery quality of a mixed bench (CCNA/CCNP/CCIE), establishing the implementation standards used for the firm's largest enterprise accounts." }
+              { title: "Dual-Role Leadership", body: "Balanced the player-coach model by managing team capacity and utilization against a $5.6M practice target while personally billing as a Technical Architect and delivery lead on complex engagements." },
+              { title: "High-Touch Enterprise Escalation", body: "Served as the primary technical backstop for high-complexity enterprise clients, stepping in when delivery exceeded standard VAR capabilities and required deep architectural judgment." },
+              { title: "Delivery Quality & Standards", body: "Oversaw delivery quality across a mixed bench of CCNA, CCNP, and CCIE consultants, enforcing implementation standards used on the firm’s largest and most visible accounts." },
+              { title: "Presales Reality Check", body: "Partnered with sales and architecture to validate scope, assumptions, and delivery feasibility before contract signature, reducing downstream risk and execution drift." },
+              { title: "Client Recovery & Retention", body: "Engaged by ownership to lead recovery bridges for missed or at-risk cutovers, restoring delivery confidence and converting unstable engagements into retained and expanded client relationships." }
             ]}
           />
 
@@ -326,12 +333,13 @@
             logoUrl="https://images.squarespace-cdn.com/content/v1/5a09abcb90bcce4bd5518c91/1515690831119-YJSK13DSLY1DM9RY7WWC/burwood-logo.png?format=1500w"
             brandColor="#16a34a"
             period="Feb 2023 – Feb 2024"
-            description="Recruited specifically to lead critical M&A integrations for the firm’s newly signed and largest account (1,000+ locations requiring a complex 250-site migration)."
+            description="Recruited specifically to lead critical M&A integrations for the firm’s newly signed and largest account (1,000+ locations requiring a complex 250-site migration). This role was performed on a contract basis during weekends, overlapping with my tenure as Global IT Director at Explore Industries."
             highlights={[
-              { title: "Mass-Scale Standardization", body: "Homogenized the infrastructure stack across acquired sites, enforcing a rigid template of VeloCloud SD-WAN, Cradlepoint LTE failover, and Aruba switching to eliminate configuration drift." },
-              { title: "Clinical Workflow Migration", body: "Directed the complex integration of specialized medical endpoints and PIMS databases, executing zero-data-loss cutovers." },
-              { title: "Methodology Turnaround", body: "Re-engineered a failing migration process into a 'Gold Standard' playbook, restoring client confidence by establishing the technical runbooks now mandated by the customer for all peer vendors." },
-              { title: "Command & Escalation", body: "Commanded high-pressure weekend cutover bridges (20+ engineers/Smart Hands) with up to 5 sites cutting over simultaneously, serving as the final escalation authority." }
+              { title: "Mass-Scale Standardization", body: "Homogenized infrastructure across acquired sites by enforcing a fixed SD-WAN and switching template (VeloCloud, Cradlepoint LTE, Aruba), eliminating configuration drift and reducing operational variability." },
+              { title: "Clinical Workflow Migration", body: "Led integration of specialized medical endpoints and PIMS databases, executing zero-data-loss cutovers in regulated, uptime-sensitive environments." },
+              { title: "Methodology Turnaround", body: "Took over a failing migration approach and rebuilt it into a repeatable, disciplined playbook that became the customer-mandated standard for all vendors supporting future implementation." },
+              { title: "Command & Escalation", body: "Ran high-pressure weekend cutovers involving 20+ engineers and Smart Hands, coordinating up to five simultaneous site migrations while serving as final technical escalation." },
+              { title: "Cutover Governance", body: "Built the go-live controls that prevented “hope-and-pray” migrations, established standardized implementation and test plans that included pre-cutover validation checklists, go/no-go gates, rollback criteria, and post-cutover validation steps so every site had a consistent, auditable outcome." }
             ]}
           />
 
@@ -346,10 +354,11 @@
             period="Oct 2020 – 2024"
             description="Recruited from Beneteau post-acquisition to professionalize global infrastructure and security."
             highlights={[
+              { title: "Cloud & Infrastructure Modernization", body: "Architected a hybrid infrastructure, integrating on-prem AD with M365 and Azure Entra ID to ensure high availability for corporate and manufacturing environments." },
+              { title: "Secure Remote Access", body: "Designed and managed Azure Virtual Networks (VNets) to deploy Azure Virtual Desktop (AVD) environments, enabling secure, domain-joined remote access for support teams on personal devices." },
+              { title: "M&A Integration", body: "Built M365 tenants from scratch and led data library migrations to the cloud, seamlessly integrating employees and assets from acquired companies." },
               { title: "Infrastructure Capital Arbitrage", body: "Replaced subscription-heavy Cisco Meraki stacks with high-performance Ubiquiti architecture across manufacturing sites. Eliminated licensing fees while improving throughput, yielding $500k in validated savings." },
-              { title: "Global P&L Authority", body: "Managed a $2.1M operational budget, delivering executive-level reporting on global capital allocation, vendor consolidation, and opex reduction." },
-              { title: "Capital Governance", body: "Established a governed EUC catalog (standard office, engineering/CAD, executive) to reduce shrink and simplify MSP support." },
-              { title: "M&A Roadmaps", body: "Developed acquisition technology roadmaps: greenfield network designs, local support sourcing, and forecasting of technology needs." }
+              { title: "Global P&L Authority", body: "Managed a $2.1M operational budget, delivering executive-level reporting on global capital allocation, vendor consolidation, and opex reduction." }
             ]}
           />
 
@@ -363,6 +372,8 @@
             period="Nov 2017 – Oct 2020"
             description="Recruited specifically to leverage Windstream carrier background to remediate North American infrastructure."
             highlights={[
+              { title: "Systems Administration", body: "Provided sole systems administration for 300+ users across North America, managing Active Directory, Group Policy, and Windows Server environments." },
+              { title: "Domain Consolidation", body: "Led the complex consolidation of 5 disparate Active Directory environments following the acquisition of multiple boating brands, unifying identity management under a single corporate domain." },
               { title: "Industry-Recognized Turnaround", body: "Featured in a Windstream National Success Story ('Righting the Ship') for reducing system management time from 60 minutes to <3 minutes." },
               { title: "SD-WAN Modernization", body: "Upgraded MPLS to SD-WAN achieving 100% uptime for services hosted in Marion, SC across North American sites." },
               { title: "Technology Validation", body: "Selected to pilot enterprise offerings (EnGenius DECT) in a live manufacturing environment, solving critical communication failures and influencing Windstream to adopt the product line." }
@@ -493,28 +504,167 @@
 
             {/* TEXT COLUMN */}
             <div>
-              <div className="inline-block px-3 py-1 mb-6 rounded-full bg-slate-800 border border-slate-700 text-teal-400 text-xs font-bold tracking-widest uppercase">
-                Leadership Philosophy
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                A Steady Hand at the Helm
-              </h2>
-              <div className="space-y-6 text-lg text-slate-400 leading-relaxed">
-                <p>
-                  My leadership style is defined by mutual transparency and trust. Having spent years in the marine and fiberglass composites manufacturing sectors at <strong>Beneteau</strong> and <strong>Explore Industries/Leisure Pools</strong>, I learned early that you cannot manage a storm from a spreadsheet.
-                </p>
-                <p>
-                  I believe that if I am checking reports before I am checking on my team, I have already lost. True scalability comes from retaining the talent that makes the company successful, which requires building genuine trust and securing buy-in from both the server room and the boardroom.
-                </p>
-                <p>
-                   While I bring the financial discipline of a strategic executive, I never lose the operational empathy of the person who has to keep the systems running. My goal is to create an environment where engineers feel empowered to speak the ground truth, feeding me the most accurate data unfiltered, allowing us to navigate complex integrations and stabilize critical infrastructure with calmness and clarity.
-                </p>
+              <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                <div className="inline-block px-3 py-1 mb-6 rounded-full bg-slate-800 border border-slate-700 text-teal-400 text-xs font-bold tracking-widest uppercase mx-auto md:mx-0">
+                  Leadership Philosophy
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  A Steady Hand at the Helm
+                </h2>
+                <div className="space-y-6 text-lg text-slate-400 leading-relaxed text-left">
+                  <p>
+                    My leadership style is defined by mutual transparency and trust. Having spent years in the marine and fiberglass composites manufacturing sectors at <strong>Beneteau</strong> and <strong>Explore Industries/Leisure Pools</strong>, I learned early that you cannot manage a storm from a spreadsheet.
+                  </p>
+                  <p>
+                    I believe that if I am checking reports before I am checking on my team, I have already lost. True scalability comes from retaining the talent that makes the company successful, which requires building genuine trust and securing buy-in from both the server room and the boardroom.
+                  </p>
+                  <p>
+                     While I bring the financial discipline of a strategic executive, I never lose the operational empathy of the person who has to keep the systems running. My goal is to create an environment where engineers feel empowered to speak the ground truth, feeding me the most accurate data unfiltered, allowing us to navigate complex integrations and stabilize critical infrastructure with calmness and clarity.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
       );
     };
+
+    const Personal = () => (
+      <section id="personal" className="py-20 px-6 bg-slate-900 border-t border-slate-800">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 px-3 py-1 mb-6 rounded-full bg-slate-800 border border-slate-700 text-purple-400 text-xs font-bold tracking-widest uppercase">
+              <Mic size={14} /> Beyond the Boardroom
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              The Engineer & The Creative
+            </h2>
+            <div className="max-w-3xl mx-auto space-y-6">
+              <p className="text-lg text-slate-400 leading-relaxed">
+                My path into IT started with music creation. In my early teens, as a weird, synthesizer-playing 13-year-old obsessed with Yanni and composing instrumental music, I became an SME out of necessity in production, signal flow, and understanding why things worked or didn’t in the studio. I learned early on that music itself might not reliably pay the bills, but diagnosing cables, routing signals, and blinking lights absolutely would.
+              </p>
+              <p className="text-lg text-slate-400 leading-relaxed">
+                That curiosity evolved into a career in technology, while music and live production remained a constant alongside it. When I’m not working, I’m usually in my home studio producing or directing live event A/V for churches. I’m also a husband, a dad to a 1-year-old, and we have three cats at home, which keeps life loud, busy, and grounded.
+              </p>
+              <p className="text-lg text-slate-400 leading-relaxed italic">
+                If you want to nerd out a bit next time we’re on the phone, the sections below go deeper into my non-IT background.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-10">
+            {/* Card 1: Audio & Touring */}
+            <div className="glass-card p-8 rounded-xl border-l-4 border-purple-500">
+              <div className="flex flex-col md:flex-row gap-8">
+                <div className="md:w-1/3">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Music className="text-purple-400" size={28} />
+                    <h3 className="text-2xl font-bold text-white">Professional Audio & Touring</h3>
+                  </div>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                    My ear was trained in the studio and battle-tested on the road. I apply the same rigor to signal flow as I do to network packets.
+                  </p>
+                </div>
+                <div className="md:w-2/3 space-y-6">
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-200 uppercase tracking-wide mb-2">The A1 Standard</h4>
+                    <p className="text-slate-400 text-sm leading-relaxed">
+                      I’ve served as Front of House (A1) engineer for exclusive engagements at Sea Island, mixing for artists like <strong>Adele</strong> (Avid VENUE SC48), <strong>Darius Rucker</strong> (SSL Live L500), <strong>Darius Rucker of Hootie and the Blowfish</strong> (Allen & Heath Qu32), and <strong>The Marshall Tucker Band</strong> (Allen & Heath Qu32).
+                    </p>
+                  </div>
+                  <div>
+                     <h4 className="text-sm font-bold text-slate-200 uppercase tracking-wide mb-2">Hybrid Studio Architecture</h4>
+                     <p className="text-slate-400 text-sm leading-relaxed">
+                        My home studio acts as my laboratory for precision. It is built around <strong>RME UFX III</strong> mastering-grade converters with a MADI network feeding <strong>Antelope Orion</strong> converters. I utilize <strong>McDSP APB</strong> for hybrid analog processing with instant recall, alongside classic <strong>SSL</strong> and <strong>SPL</strong> outboard gear.
+                     </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 pt-2">
+                    <div className="flex items-start gap-2 text-sm text-slate-300">
+                      <span className="text-purple-500 mt-1">▹</span>
+                      <span><strong>Touring:</strong> Former Lead Guitarist for Eddie James (2011 Tour). I understand the artist's needs because I have lived on the stage.</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm text-slate-300">
+                      <span className="text-purple-500 mt-1">▹</span>
+                      <span><strong>Consoles:</strong> Deep fluency in SSL Live, Avid VENUE, Midas Pro Series, and Allen & Heath ecosystems.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Visuals */}
+            <div className="glass-card p-8 rounded-xl border-l-4 border-teal-500">
+              <div className="flex flex-col md:flex-row gap-8">
+                <div className="md:w-1/3">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Lightbulb className="text-teal-400" size={28} />
+                    <h3 className="text-2xl font-bold text-white">Visuals & Production Strategy</h3>
+                  </div>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    Translating creative concepts into technical reality for large-scale events with significant budget exposure.
+                  </p>
+                </div>
+                <div className="md:w-2/3 space-y-6">
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-200 uppercase tracking-wide mb-2">The Technical Director</h4>
+                    <p className="text-slate-400 text-sm leading-relaxed">
+                      I have managed the logistics of large-scale events with <strong>$2M+ budgets</strong>. I speak the language of rental houses, allowing me to negotiate aggressive pricing on gear.
+                    </p>
+                  </div>
+                  <ul className="space-y-3 text-slate-300 text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="text-teal-500 mt-1">▹</span>
+                      <span><strong>Visuals:</strong> Directed teams handling 20K+ Lumen projection stacks (Christie & EIKI) and complex mapping for ballrooms and arenas.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-teal-500 mt-1">▹</span>
+                      <span><strong>Lighting:</strong> Designed intelligent lighting plots using Leko Source Fours, custom Gobos, and truss-mounted arrays for brand-specific atmospherics.</span>
+                    </li>
+                     <li className="flex items-start gap-2">
+                      <span className="text-teal-500 mt-1">▹</span>
+                      <span><strong>The Bridge:</strong> Applying the same rigor of presales development—selling multi-million dollar budgets to Ford Corporate—to creating sustainable technical teams for local church plants.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3: Ministry */}
+            <div className="glass-card p-8 rounded-xl border-l-4 border-blue-500">
+              <div className="flex flex-col md:flex-row gap-8">
+                <div className="md:w-1/3">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Anchor className="text-blue-400" size={28} />
+                    <h3 className="text-2xl font-bold text-white">Ministry & Church Planting</h3>
+                  </div>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    I don't just keep this expertise for the corporate world; I pour it back into the Kingdom.
+                  </p>
+                </div>
+                <div className="md:w-2/3 space-y-6">
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-200 uppercase tracking-wide mb-2">The Heart for the Local Church</h4>
+                    <p className="text-slate-400 text-sm leading-relaxed">
+                      I consult for church plants across the Southeast (Spartanburg, Greenville, Columbia, Florence, and Myrtle Beach), designing "turnkey" portable AVL systems that volunteers can set up in 90 minutes along with permanent installs of Midas Pro 6/X and Behringer X32 consoles with Dante and AES50 stage box networking tied into live-streaming.
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                     <div>
+                        <h4 className="text-sm font-bold text-slate-200 uppercase tracking-wide mb-1">Mentorship</h4>
+                        <p className="text-slate-400 text-sm">Training volunteer teams on signal flow, gain staging, and critical listening.</p>
+                     </div>
+                     <div>
+                        <h4 className="text-sm font-bold text-slate-200 uppercase tracking-wide mb-1">The Goal</h4>
+                        <p className="text-slate-400 text-sm">Helping pastors build technical infrastructures that support their vision without breaking their budget.</p>
+                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
 
     const Contact = () => (
       <section id="contact" className="py-20 px-6 bg-slate-900 border-t border-slate-800">
@@ -567,6 +717,7 @@
         <Timeline />
         <Education />
         <AboutMe />
+        <Personal />
         <Contact />
       </div>
     );
