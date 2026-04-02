@@ -143,7 +143,7 @@
     );
 
     const Hero = () => (
-      <section id="main-content" aria-label="Introduction" className="relative pt-32 pb-16 px-6 min-h-[85vh] flex items-center justify-center overflow-hidden">
+      <section aria-label="Introduction" className="relative pt-32 pb-16 px-6 min-h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20" aria-hidden="true">
           <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-blue-600 rounded-full blur-[100px]"></div>
           <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-teal-500 rounded-full blur-[100px]"></div>
@@ -208,7 +208,8 @@
       ]), []);
 
       return (
-        <section id="impact" aria-label="Career impact metrics" className="py-12 border-y border-slate-800 bg-slate-900/50 backdrop-blur-sm">
+        <section id="impact" aria-labelledby="impact-heading" className="py-12 border-y border-slate-800 bg-slate-900/50 backdrop-blur-sm">
+          <h2 id="impact-heading" className="sr-only">Career Impact</h2>
           <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8" role="list">
             {stats.map((stat, idx) => (
               <div key={idx} role="listitem" className="text-center group hover:-translate-y-1 transition duration-300">
@@ -246,7 +247,7 @@
                   <div className="flex-shrink-0 bg-white p-1 rounded-lg h-16 w-16 flex items-center justify-center overflow-hidden border border-slate-700/50 shadow-lg relative">
                       <img
                           src={logoUrl}
-                          alt={`${company} logo`}
+                          alt=""
                           referrerPolicy="no-referrer"
                           className="max-w-full max-h-full object-contain"
                           onError={() => setImgError(true)}
@@ -255,7 +256,7 @@
               ) : (
                   <div
                     className="flex-shrink-0 p-1 rounded-lg h-16 w-16 flex items-center justify-center border border-slate-700 shadow-lg bg-white"
-                    role="img" aria-label={`${company} logo`}
+                    aria-hidden="true"
                   >
                       <span className="font-bold text-2xl" aria-hidden="true" style={{ color: brandColor || '#334155' }}>
                         {company.charAt(0)}
@@ -294,10 +295,10 @@
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto relative">
+        <ol className="max-w-6xl mx-auto relative list-none m-0 p-0" aria-label="Career timeline, most recent first">
           <div className="timeline-line hidden md:block" aria-hidden="true"></div>
 
-          {/* BURWOOD: BMS */}
+          <li>{/* BURWOOD: BMS */}
           <ExperienceItem
             isRight={false}
             role="Operations Engineering Lead"
@@ -316,8 +317,9 @@
               { title: "Operational Visibility", body: "Refreshed stale ServiceNow dashboards to give team leads and the director usable business telemetry, identified priority and child-ticket handling defects distorting SLA and on-call reporting, and improved ScienceLogic SL1 ticket links so engineers could open directly to the affected device for faster triage." }
             ]}
           />
+          </li>
 
-          {/* BURWOOD: PRACTICE LEAD */}
+          <li>{/* BURWOOD: PRACTICE LEAD */}
           <ExperienceItem
             isRight={true}
             role="Practice Lead"
@@ -335,8 +337,9 @@
               { title: "Scaled Frameworks", body: "Adapted proprietary M&A migration framework for an $800M VC-backed financial services startup, enabling rapid multi-state acquisition integration." }
             ]}
           />
+          </li>
 
-          {/* BURWOOD: TEAM LEAD */}
+          <li>{/* BURWOOD: TEAM LEAD */}
           <ExperienceItem
             isRight={false}
             role="Team Lead"
@@ -354,8 +357,9 @@
               { title: "Client Recovery & Retention", body: "Engaged by ownership to lead recovery bridges for missed or at-risk cutovers, restoring delivery confidence and converting unstable engagements into retained and expanded client relationships." }
             ]}
           />
+          </li>
 
-          {/* BURWOOD: ARCHITECT */}
+          <li>{/* BURWOOD: ARCHITECT */}
           <ExperienceItem
             isRight={true}
             role="Technical Architect"
@@ -373,8 +377,9 @@
               { title: "Cutover Governance", body: "Built the go-live controls that prevented “hope-and-pray” migrations, established standardized implementation and test plans that included pre-cutover validation checklists, go/no-go gates, rollback criteria, and post-cutover validation steps so every site had a consistent, auditable outcome." }
             ]}
           />
+          </li>
 
-          {/* EXPLORE INDUSTRIES */}
+          <li>{/* EXPLORE INDUSTRIES */}
           <ExperienceItem
             isRight={false}
             role="Global IT Director"
@@ -392,8 +397,9 @@
               { title: "Global P&L Authority", body: "Managed a $2.1M operational budget, delivering executive-level reporting on global capital allocation, vendor consolidation, and opex reduction." }
             ]}
           />
+          </li>
 
-          {/* BENETEAU */}
+          <li>{/* BENETEAU */}
           <ExperienceItem
             isRight={true}
             role="Senior Network Administrator"
@@ -410,8 +416,9 @@
               { title: "Technology Validation", body: "Selected to pilot enterprise offerings (EnGenius DECT) in a live manufacturing environment, solving critical communication failures and influencing Windstream to adopt the product line." }
             ]}
           />
+          </li>
 
-          {/* SEA ISLAND */}
+          <li>{/* SEA ISLAND */}
           <ExperienceItem
             isRight={false}
             role="Director of IT / Asst. Director of AV"
@@ -428,8 +435,9 @@
               { title: "Legacy Voice Operations", body: "Managed the 5ESS voice system and complex routing for the resort's multi-property telecom network." }
             ]}
           />
+          </li>
 
-          {/* WINDSTREAM */}
+          <li>{/* WINDSTREAM */}
           <ExperienceItem
             isRight={true}
             role="Team Lead"
@@ -447,8 +455,9 @@
               { title: "Wholesale Network Ownership", body: "Owned end-to-end technical responsibility for reseller and CLEC environments, from provisioning through live-traffic stabilization, under strict SLA and penalty exposure." }
             ]}
           />
-          
-          {/* EARLY CAREER FOUNDATION */}
+          </li>
+
+          <li>{/* EARLY CAREER FOUNDATION */}
           <article className="relative mb-16 md:mb-0 w-full md:w-1/2 md:pr-12" aria-label="Early Career Foundation">
             <div className="hidden md:block absolute top-6 -right-[10px] w-4 h-4 rounded-full border-4 border-slate-900 bg-slate-500 z-10" aria-hidden="true"></div>
 
@@ -473,14 +482,15 @@
 
               <div>
                 <h4 className="text-blue-400 font-medium text-base">Customer Service & Client-Facing Foundations</h4>
-                <p className="text-slate-400 text-sm">Retail, Hospitality &amp; Instruction | <time datetime="2010/2013">2010–2013</time></p>
+                <p className="text-slate-400 text-sm">Retail, Hospitality &amp; Instruction | 2010–2013</p>
                 <p className="text-slate-400 text-sm mt-2 leading-relaxed">
                   Built early service discipline and client communication skills through roles as a private music instructor and positions at Best Buy, CVS, and Ruby Tuesday. Learned to manage expectations, stay composed under pressure, and deliver consistent outcomes in fast-paced, customer-facing environments.
                 </p>
               </div>
             </div>
           </article>
-        </div>
+          </li>
+        </ol>
       </section>
     );
 
@@ -775,7 +785,7 @@
     const App = () => (
       <div className="antialiased selection:bg-blue-500 selection:text-white">
         <Nav />
-        <main id="main" role="main">
+        <main id="main-content" tabIndex="-1" style={{ scrollMarginTop: '4rem', outline: 'none' }}>
           <Hero />
           <Metrics />
           <Timeline />
@@ -783,7 +793,7 @@
           <AboutMe />
           <Personal />
         </main>
-        <footer role="contentinfo">
+        <footer>
           <Contact />
         </footer>
       </div>
