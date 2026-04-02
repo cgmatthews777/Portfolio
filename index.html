@@ -121,14 +121,14 @@
             <a href="#" className="text-xl font-bold tracking-tighter text-white" aria-label="Christian Matthews — home">
               CM<span className="text-blue-400" aria-hidden="true">.</span>
             </a>
-            <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-300" role="list">
-              <a href="#impact" role="listitem" className="hover:text-blue-400 transition">Impact</a>
-              <a href="#experience" role="listitem" className="hover:text-blue-400 transition">Track Record</a>
-              <a href="#education" role="listitem" className="hover:text-blue-400 transition">Education</a>
-              <a href="#about" role="listitem" className="hover:text-blue-400 transition">About</a>
-              <a href="#personal" role="listitem" className="hover:text-blue-400 transition">Personal</a>
-              <a href="#contact" role="listitem" className="hover:text-blue-400 transition">Contact</a>
-            </div>
+            <ul className="hidden md:flex space-x-8 text-sm font-medium text-slate-300 list-none m-0 p-0">
+              <li><a href="#impact" className="hover:text-blue-400 transition">Impact</a></li>
+              <li><a href="#experience" className="hover:text-blue-400 transition">Track Record</a></li>
+              <li><a href="#education" className="hover:text-blue-400 transition">Education</a></li>
+              <li><a href="#about" className="hover:text-blue-400 transition">About</a></li>
+              <li><a href="#personal" className="hover:text-blue-400 transition">Personal</a></li>
+              <li><a href="#contact" className="hover:text-blue-400 transition">Contact</a></li>
+            </ul>
             <div className="flex items-center gap-4">
               <a href="https://www.linkedin.com/in/cmatthews2022/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition" aria-label="LinkedIn profile (opens in new tab)">
                   <Linkedin size={20} />
@@ -286,7 +286,7 @@
     };
 
     const Timeline = () => (
-      <section id="experience" className="py-24 px-6 bg-slate-950 relative">
+      <section id="experience" aria-label="Professional experience" className="py-24 px-6 bg-slate-950 relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Professional Experience</h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
@@ -456,24 +456,24 @@
               <h3 className="text-xl font-bold text-white mb-6 leading-tight">Early Career Foundation</h3>
               
               <div className="mb-6">
-                  <div className="text-blue-400 font-medium">IT Support Specialist</div>
-                  <div className="text-slate-400 text-sm">Sonoco (Fortune 500 Manufacturing) | 2014</div>
+                  <h4 className="text-blue-400 font-medium text-base">IT Support Specialist</h4>
+                  <p className="text-slate-400 text-sm">Sonoco (Fortune 500 Manufacturing) | <time datetime="2014">2014</time></p>
                   <p className="text-slate-400 text-sm mt-2 leading-relaxed">
                     Frontline IT support in a safety-critical manufacturing environment, building early fluency in enterprise standards, asset control, and disciplined service delivery. Those principles later made me the person leadership relied on during COVID-era hypergrowth, when we were onboarding new hires daily and 16-week Dell and Lenovo lead times threatened to stall the business.
                  </p>
               </div>
 
               <div className="mb-6">
-                  <div className="text-blue-400 font-medium">IT Help Desk Technician</div>
-                  <div className="text-slate-400 text-sm">Florence-Darlington Tech. College | 2013</div>
+                  <h4 className="text-blue-400 font-medium text-base">IT Help Desk Technician</h4>
+                  <p className="text-slate-400 text-sm">Florence-Darlington Tech. College | <time datetime="2013">2013</time></p>
                   <p className="text-slate-400 text-sm mt-2 leading-relaxed">
                     Recommended directly by my professors after my first semester to support campus IT operations. Built strong fundamentals in end-user support, troubleshooting, documentation, and public-sector systems that formed the foundation for everything that followed.
                  </p>
               </div>
 
               <div>
-                <div className="text-blue-400 font-medium">Customer Service & Client-Facing Foundations</div>
-                <div className="text-slate-400 text-sm">Retail, Hospitality & Instruction | 2010–2013</div>
+                <h4 className="text-blue-400 font-medium text-base">Customer Service & Client-Facing Foundations</h4>
+                <p className="text-slate-400 text-sm">Retail, Hospitality &amp; Instruction | <time datetime="2010/2013">2010–2013</time></p>
                 <p className="text-slate-400 text-sm mt-2 leading-relaxed">
                   Built early service discipline and client communication skills through roles as a private music instructor and positions at Best Buy, CVS, and Ruby Tuesday. Learned to manage expectations, stay composed under pressure, and deliver consistent outcomes in fast-paced, customer-facing environments.
                 </p>
@@ -485,7 +485,7 @@
     );
 
     const Education = () => (
-      <section id="education" className="py-20 px-6 bg-slate-900 border-t border-slate-800">
+      <section id="education" aria-label="Education and certifications" className="py-20 px-6 bg-slate-900 border-t border-slate-800">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">Education & Certifications</h2>
@@ -541,7 +541,7 @@
 
     const AboutMe = () => {
       return (
-        <section id="about" className="py-24 px-6 bg-slate-950 border-t border-slate-800">
+        <section id="about" aria-label="Leadership philosophy" className="py-24 px-6 bg-slate-950 border-t border-slate-800">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
              {/* IMAGE COLUMN */}
              <div className="relative group mx-auto md:mx-0 order-first md:order-last">
@@ -593,7 +593,7 @@
     };
 
     const Personal = () => (
-      <section id="personal" className="py-20 px-6 bg-slate-900 border-t border-slate-800">
+      <section id="personal" aria-label="Personal interests and creative work" className="py-20 px-6 bg-slate-900 border-t border-slate-800">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-3 px-3 py-1 mb-6 rounded-full bg-slate-800 border border-slate-700 text-purple-400 text-xs font-bold tracking-widest uppercase">
@@ -617,7 +617,7 @@
 
           <div className="flex flex-col gap-10">
             {/* Card 1: Audio & Touring */}
-            <div className="glass-card p-8 rounded-xl border-l-4 border-purple-500">
+            <section aria-label="Professional Audio and Touring" className="glass-card p-8 rounded-xl border-l-4 border-purple-500">
               <div className="flex flex-col md:flex-row gap-8">
                 <div className="md:w-1/3">
                   <div className="flex items-center gap-3 mb-4">
@@ -653,10 +653,10 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
 
             {/* Card 2: Visuals */}
-            <div className="glass-card p-8 rounded-xl border-l-4 border-teal-500">
+            <section aria-label="Visuals and Production Strategy" className="glass-card p-8 rounded-xl border-l-4 border-teal-500">
               <div className="flex flex-col md:flex-row gap-8">
                 <div className="md:w-1/3">
                   <div className="flex items-center gap-3 mb-4">
@@ -690,10 +690,10 @@
                   </ul>
                 </div>
               </div>
-            </div>
+            </section>
 
             {/* Card 3: Ministry */}
-            <div className="glass-card p-8 rounded-xl border-l-4 border-blue-500">
+            <section aria-label="Ministry and Church Planting" className="glass-card p-8 rounded-xl border-l-4 border-blue-500">
               <div className="flex flex-col md:flex-row gap-8">
                 <div className="md:w-1/3">
                   <div className="flex items-center gap-3 mb-4">
@@ -723,14 +723,14 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </section>
     );
 
     const Contact = () => (
-      <section id="contact" className="py-20 px-6 bg-slate-900 border-t border-slate-800">
+      <section id="contact" aria-label="Contact information" className="py-20 px-6 bg-slate-900 border-t border-slate-800">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-8">Connect</h2>
           <p className="text-slate-400 mb-10">
