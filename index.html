@@ -133,7 +133,7 @@
               <a href="https://www.linkedin.com/in/cmatthews2022/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition" aria-label="LinkedIn profile (opens in new tab)">
                   <Linkedin size={20} />
               </a>
-              <a href="#contact" className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium transition flex items-center gap-2">
+              <a href="#contact" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium transition flex items-center gap-2">
                   <Mail size={14} /> Connect
               </a>
             </div>
@@ -295,8 +295,9 @@
           </p>
         </div>
 
-        <ol className="max-w-6xl mx-auto relative list-none m-0 p-0" aria-label="Career timeline, most recent first">
+        <div className="max-w-6xl mx-auto relative">
           <div className="timeline-line hidden md:block" aria-hidden="true"></div>
+          <ol className="relative list-none m-0 p-0" aria-label="Career timeline, most recent first">
 
           <li>{/* BURWOOD: BMS */}
           <ExperienceItem
@@ -490,7 +491,8 @@
             </div>
           </article>
           </li>
-        </ol>
+          </ol>
+        </div>
       </section>
     );
 
@@ -785,7 +787,7 @@
     const App = () => (
       <div className="antialiased selection:bg-blue-500 selection:text-white">
         <Nav />
-        <main id="main-content" tabIndex="-1" style={{ scrollMarginTop: '4rem', outline: 'none' }}>
+        <main id="main-content" tabIndex="-1" style={{ scrollMarginTop: '4rem' }}>
           <Hero />
           <Metrics />
           <Timeline />
