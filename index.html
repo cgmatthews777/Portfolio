@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Christian Matthews | Founder & CEO, Cedar Infrastructure Group</title>
 
-  <meta name="description" content="Christian Matthews — Founder & CEO of Cedar Infrastructure Group. Strategic Technology Executive and Infrastructure Architect known for Capital Discipline and Operational Arbitrage." />
+  <meta name="description" content="Christian Matthews, Founder & CEO of Cedar Infrastructure Group. Strategic Technology Executive and Infrastructure Architect known for Capital Discipline and Operational Arbitrage." />
   <meta property="og:title" content="Christian Matthews | Founder & CEO, Cedar Infrastructure Group" />
   <meta property="og:description" content="Founder of Cedar Infrastructure Group. Delivering enterprise-grade reliability without enterprise-grade cost structures." />
   <meta property="og:type" content="website" />
@@ -118,7 +118,7 @@
         <a href="#main-content" className="sr-only">Skip to main content</a>
         <nav aria-label="Primary navigation" className="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
           <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" className="text-xl font-bold tracking-tighter text-white" aria-label="Christian Matthews — home">
+            <a href="#" className="text-xl font-bold tracking-tighter text-white" aria-label="Christian Matthews home">
               CM<span className="text-blue-400" aria-hidden="true">.</span>
             </a>
             <ul className="hidden md:flex space-x-8 text-sm font-medium text-slate-300 list-none m-0 p-0">
@@ -155,11 +155,11 @@
           </h1>
           
           <h2 className="text-3xl md:text-5xl font-bold text-slate-300 mb-6 leading-tight">
-            <span className="serif italic text-slate-400">Founder &amp; CEO,</span> <span className="gradient-text">Cedar Infrastructure Group</span><br /><span className="text-slate-400 text-2xl md:text-3xl font-normal">Technology Executive &amp; Infrastructure Architect</span>
+            <span className="serif italic text-slate-400">Technology</span> <span className="gradient-text">Executive</span> &<br /><span className="gradient-text">Infrastructure Architect</span>
           </h2>
 
           <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed">
-            Founder and CEO of <a href="https://hirecedar.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition">Cedar Infrastructure Group</a> — an infrastructure consulting and technical talent firm supporting enterprise IT organizations, CIO offices, federal primes, defense agencies, and VAR partners. Technology executive and architect with 15 years building, scaling, and leading IT operations. Known for delivering enterprise-grade reliability without traditional enterprise-grade cost structures.
+            Technology executive and architect with 15 years building, scaling, and leading IT operations. Known for delivering enterprise-grade reliability without traditional enterprise-grade cost structures. Proven record of entering low-maturity environments and standing up the governance, vendor leverage, and delivery systems required to scale.
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4" role="group" aria-label="Download documents">
@@ -220,8 +220,38 @@
       );
     };
 
-    const ExperienceItem = ({ role, subRole, company, logoUrl, period, description, highlights, isRight, brandColor }) => {
+    const ExperienceItem = ({ role, subRole, company, logoUrl, companyUrl, period, description, highlights, isRight, brandColor }) => {
       const [imgError, setImgError] = useState(false);
+
+      const logoInner = logoUrl && !imgError ? (
+        <img
+          src={logoUrl}
+          alt={`${company} logo`}
+          referrerPolicy="no-referrer"
+          className="max-w-full max-h-full object-contain"
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <span className="font-bold text-3xl" aria-hidden="true" style={{ color: brandColor || '#334155' }}>
+          {company.charAt(0)}
+        </span>
+      );
+
+      const logoBoxClasses = "bg-white p-3 rounded-2xl h-20 w-20 flex items-center justify-center overflow-hidden ring-1 ring-slate-700/40 shadow-lg shadow-slate-950/40";
+
+      const logoWrapper = companyUrl ? (
+        <a
+          href={companyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Visit ${company} website (opens in new tab)`}
+          className={`flex-shrink-0 ${logoBoxClasses} transition duration-300 hover:scale-105 hover:ring-blue-400/60 hover:shadow-blue-500/20 focus-visible:ring-2 focus-visible:ring-blue-400`}
+        >
+          {logoInner}
+        </a>
+      ) : (
+        <div className={`flex-shrink-0 ${logoBoxClasses}`}>{logoInner}</div>
+      );
 
       return (
         <article className={`relative mb-16 md:mb-0 w-full md:w-1/2 ${isRight ? 'md:ml-auto md:pl-12' : 'md:pr-12'}`} aria-label={`${role} at ${company}`}>
@@ -229,7 +259,7 @@
 
           <div className="glass-card p-8 rounded-xl hover:border-blue-500/30 transition duration-300">
 
-            <div className="flex justify-between items-start gap-4 mb-4">
+            <div className="flex justify-between items-start gap-5 mb-4">
               <div className="flex-1">
                   <h3 className="text-xl font-bold text-white leading-tight">
                       {role}
@@ -239,26 +269,7 @@
                   <p className="text-slate-400 text-sm mt-1"><time>{period}</time></p>
               </div>
 
-              {logoUrl && !imgError ? (
-                  <div className="flex-shrink-0 bg-white p-1 rounded-lg h-16 w-16 flex items-center justify-center overflow-hidden border border-slate-700/50 shadow-lg relative">
-                      <img
-                          src={logoUrl}
-                          alt=""
-                          referrerPolicy="no-referrer"
-                          className="max-w-full max-h-full object-contain"
-                          onError={() => setImgError(true)}
-                      />
-                  </div>
-              ) : (
-                  <div
-                    className="flex-shrink-0 p-1 rounded-lg h-16 w-16 flex items-center justify-center border border-slate-700 shadow-lg bg-white"
-                    aria-hidden="true"
-                  >
-                      <span className="font-bold text-2xl" aria-hidden="true" style={{ color: brandColor || '#334155' }}>
-                        {company.charAt(0)}
-                      </span>
-                  </div>
-              )}
+              {logoWrapper}
             </div>
 
             {description && (
@@ -300,15 +311,16 @@
             isRight={true}
             role="Founder & CEO"
             company="Cedar Infrastructure Group"
-            logoUrl="https://hirecedar.com/favicon-32x32.png"
+            logoUrl="https://hirecedar.com/cedar_lockup_black.png"
+            companyUrl="https://hirecedar.com"
             brandColor="#1e3a5f"
             period="Mar 2026 – Present"
-            description="Founded Cedar as an infrastructure consulting and technical talent firm supporting enterprise IT organizations, CIO offices, federal primes, defense agencies, and VAR partners across commercial and public-sector markets. Cedar operates where technical credibility, customer trust, and execution discipline matter most — built by a practitioner who understands how work is sold, how delivery risk is carried, and how projects succeed or fail in the field."
+            description="Founded Cedar as an infrastructure consulting and technical talent firm supporting enterprise IT organizations, CIO offices, federal primes, defense agencies, and VAR partners across commercial and public-sector markets. Cedar operates where technical credibility, customer trust, and execution discipline matter most, built by a practitioner who understands how work is sold, how delivery risk is carried, and how projects succeed or fail in the field."
             highlights={[
               { title: "Full-Lifecycle Ownership", body: "Lead the business across client development, executive relationships, partner strategy, engagement scoping, pricing, contract negotiation, engineer recruiting, subcontractor alignment, and delivery oversight." },
-              { title: "Federal Posture", body: "Established federal contracting readiness with SAM.gov registration, CAGE 1APC0, and UEI KWXKBP6CNVJ9 — enabling cleared engineer placement and subcontracting support for DoD and federal civilian programs." },
+              { title: "Federal Posture", body: "Established federal contracting readiness with SAM.gov registration, CAGE 1APC0, and UEI KWXKBP6CNVJ9, enabling cleared engineer placement and subcontracting support for DoD and federal civilian programs." },
               { title: "Service Catalog", body: "Stood up delivery across enterprise network engineering, systems and cloud architecture, virtualization and data center modernization, security infrastructure, multi-site field services, M&A IT integration, and fractional CIO / interim IT director leadership." },
-              { title: "Active Engagements", body: "Senior infrastructure delivery across VMware, Cisco, Aruba, Palo Alto, and Fortinet — including ESXi migrations, network operations, multi-site rollouts, fractional leadership, and cleared engineer placement for federal primes and enterprise clients." },
+              { title: "Active Engagements", body: "Senior infrastructure delivery across VMware, Cisco, Aruba, Palo Alto, and Fortinet, including ESXi migrations, network operations, multi-site rollouts, fractional leadership, and cleared engineer placement for federal primes and enterprise clients." },
               { title: "Partner Strategy", body: "Engaged on subcontracting partnerships, OEM relationships, enterprise network/systems engineering programs, federal delivery support, and fractional leadership conversations across commercial and public-sector markets." }
             ]}
           />
@@ -712,7 +724,7 @@
                     </li>
                       <li className="flex items-start gap-2">
                       <span className="text-teal-500 mt-1" aria-hidden="true">▹</span>
-                      <span><strong>The Bridge:</strong> Applying the same rigor of presales development—selling multi-million dollar budgets to Ford Corporate—to creating sustainable technical teams for local church plants.</span>
+                      <span><strong>The Bridge:</strong> Applying the same rigor of presales development (selling multi-million dollar budgets to Ford Corporate) to creating sustainable technical teams for local church plants.</span>
                     </li>
                   </ul>
                 </div>
