@@ -239,11 +239,30 @@
     };
 
     const CurrentRole = () => {
-      const highlights = [
-        { title: "Full-Lifecycle Ownership", body: "Lead client development, executive relationships, partner strategy, engagement scoping, pricing, contract negotiation, engineer recruiting, subcontractor alignment, and delivery oversight." },
-        { title: "Federal Posture", body: "Established federal contracting readiness with SAM.gov registration, CAGE 1APC0, and UEI KWXKBP6CNVJ9, enabling cleared engineer placement and subcontracting support for DoD and federal civilian programs." },
-        { title: "Delivery Across the Stack", body: "Senior delivery across enterprise network engineering, systems and cloud architecture, virtualization, security infrastructure, multi-site rollouts, M&A IT integration, and fractional CIO / interim IT director leadership." },
-        { title: "Active Engagements", body: "Current work spans VMware, Cisco, Aruba, Palo Alto, and Fortinet, including ESXi migrations, network operations, fractional leadership, and cleared engineer placement for federal primes and enterprise clients." }
+      const practitionerLens = [
+        "How work is sold",
+        "How delivery risk is carried",
+        "How customers measure trust",
+        "How partners protect margin",
+        "How engineers are evaluated",
+        "How projects succeed or fail in the field"
+      ];
+
+      const coreAreas = [
+        "Enterprise network engineering",
+        "Systems and cloud architecture",
+        "Virtualization and data center modernization",
+        "Security infrastructure",
+        "Field services and multi-site rollout",
+        "M&A IT integration",
+        "Project delivery and technical program support",
+        "Fractional CIO, interim IT director, and infrastructure leadership"
+      ];
+
+      const federalPosture = [
+        { label: "Registration", value: "SAM.gov" },
+        { label: "CAGE Code", value: "1APC0" },
+        { label: "UEI", value: "KWXKBP6CNVJ9" }
       ];
 
       return (
@@ -254,6 +273,8 @@
           </div>
 
           <div className="max-w-6xl mx-auto relative z-10">
+
+            {/* Header */}
             <div className="flex flex-col items-center text-center mb-12">
               <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-slate-800/80 backdrop-blur border border-slate-700 text-teal-400 text-xs font-bold tracking-widest uppercase">
                 <span className="relative flex h-2 w-2" aria-hidden="true">
@@ -274,41 +295,104 @@
                 aria-label="Visit Cedar Infrastructure Group website (opens in new tab)"
                 className="group inline-block mb-5 rounded-2xl transition duration-300 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               >
-                <div className="bg-white px-10 md:px-14 py-6 md:py-7 rounded-2xl shadow-2xl shadow-blue-500/20 ring-1 ring-slate-700/40 group-hover:ring-blue-400/60 group-hover:shadow-blue-500/30 transition">
+                <div className="bg-white px-10 md:px-14 py-6 md:py-8 rounded-2xl shadow-2xl shadow-blue-500/20 ring-1 ring-slate-700/40 group-hover:ring-blue-400/60 group-hover:shadow-blue-500/30 transition">
                   <img
-                    src="https://hirecedar.com/cedar_wordmark_black.svg"
+                    src="https://hirecedar.com/cedar_lockup_black.png"
                     alt="Cedar Infrastructure Group"
-                    className="h-14 md:h-20 w-auto"
+                    className="h-20 md:h-28 w-auto"
                   />
                 </div>
               </a>
 
               <p className="text-slate-400 text-sm">
                 <time>Mar 2026 – Present</time>
-                <span className="mx-2 text-slate-700" aria-hidden="true">·</span>
-                Cedar Infrastructure Group
               </p>
             </div>
 
-            <div className="max-w-3xl mx-auto text-center mb-12">
+            {/* Intro paragraphs */}
+            <div className="max-w-3xl mx-auto text-center mb-14 space-y-5">
               <p className="text-base md:text-lg text-slate-300 leading-relaxed">
-                Founded Cedar as an infrastructure consulting and technical talent firm supporting enterprise IT organizations, CIO offices, federal primes, defense agencies, and VAR partners across commercial and public-sector markets. Cedar operates where technical credibility, customer trust, and execution discipline matter most, built by a practitioner who understands how work is sold, how delivery risk is carried, and how projects succeed or fail in the field.
+                Cedar is an infrastructure consulting and technical talent firm supporting enterprise IT organizations, CIO offices, federal primes, defense agencies, and VAR partners across commercial and public-sector markets. Built from the ground up, Cedar operates where technical credibility, customer trust, and execution discipline matter most.
+              </p>
+              <p className="text-base md:text-lg text-slate-300 leading-relaxed">
+                We help organizations move critical infrastructure work forward when internal bench is constrained, specialized expertise is required, or leadership capacity is needed.
+              </p>
+              <p className="text-base md:text-lg text-slate-300 leading-relaxed">
+                As Founder and CEO, I lead the business across client development, executive relationships, partner strategy, engagement scoping, pricing, contract negotiation, engineer recruiting, subcontractor alignment, and delivery oversight.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto" role="list" aria-label="Cedar engagement areas">
-              {highlights.map((item, i) => (
-                <div key={i} role="listitem" className="glass-card p-6 rounded-xl hover:border-blue-500/30 transition duration-300">
-                  <h3 className="text-base font-bold text-white mb-2 flex items-center gap-2">
-                    <span className="text-blue-500" aria-hidden="true">▹</span>
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-slate-300 leading-relaxed pl-6">{item.body}</p>
+            {/* Practitioner Lens + Core Service Areas */}
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-10">
+
+              <div className="glass-card p-7 rounded-xl">
+                <div className="inline-block px-2 py-0.5 mb-4 rounded-full bg-slate-800 border border-slate-700 text-blue-400 text-[10px] font-bold tracking-widest uppercase">
+                  Practitioner Lens
                 </div>
-              ))}
+                <h3 className="text-lg font-bold text-white mb-3 leading-snug">
+                  Built by an operator who understands the full lifecycle of infrastructure services
+                </h3>
+                <ul className="space-y-2" aria-label="Practitioner perspective">
+                  {practitionerLens.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
+                      <span className="text-blue-500 mt-1" aria-hidden="true">▹</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="glass-card p-7 rounded-xl">
+                <div className="inline-block px-2 py-0.5 mb-4 rounded-full bg-slate-800 border border-slate-700 text-teal-400 text-[10px] font-bold tracking-widest uppercase">
+                  Core Service Areas
+                </div>
+                <h3 className="text-lg font-bold text-white mb-3 leading-snug">
+                  Where Cedar shows up for clients and partners
+                </h3>
+                <ul className="space-y-2" aria-label="Core service areas">
+                  {coreAreas.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
+                      <span className="text-teal-500 mt-1" aria-hidden="true">▹</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
             </div>
 
-            <div className="text-center mt-12">
+            {/* Current Engagements */}
+            <div className="glass-card p-7 rounded-xl max-w-5xl mx-auto mb-10 border-l-4 border-blue-500">
+              <div className="inline-block px-2 py-0.5 mb-3 rounded-full bg-slate-800 border border-slate-700 text-blue-400 text-[10px] font-bold tracking-widest uppercase">
+                Current Engagements
+              </div>
+              <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-3">
+                Senior infrastructure delivery across VMware, Cisco, Aruba, Palo Alto, and Fortinet, including ESXi migrations, network operations, and multi-site rollouts; fractional and interim IT leadership; cleared engineer placement for federal primes and enterprise clients; and subcontracting support for DoD and federal civilian programs.
+              </p>
+              <p className="text-xs md:text-sm text-slate-400 leading-relaxed italic">
+                Actively engaged on subcontracting partnerships, OEM relationships, enterprise network and systems engineering programs, federal delivery support, and fractional leadership conversations.
+              </p>
+            </div>
+
+            {/* Federal Posture */}
+            <div className="max-w-5xl mx-auto mb-12">
+              <div className="text-center mb-5">
+                <div className="inline-block px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700 text-teal-400 text-[10px] font-bold tracking-widest uppercase">
+                  Federal Posture
+                </div>
+              </div>
+              <div className="grid md:grid-cols-3 gap-4" role="list" aria-label="Federal contracting credentials">
+                {federalPosture.map((item, i) => (
+                  <div key={i} role="listitem" className="glass-card p-5 rounded-xl text-center">
+                    <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-2 font-bold">{item.label}</div>
+                    <div className="text-base md:text-lg font-bold text-white font-mono tracking-wide">{item.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center">
               <a
                 href="https://hirecedar.com"
                 target="_blank"
@@ -319,6 +403,7 @@
                 Visit hirecedar.com <ArrowRight size={16} />
               </a>
             </div>
+
           </div>
         </section>
       );
