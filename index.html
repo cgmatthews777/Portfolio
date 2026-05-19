@@ -162,33 +162,50 @@
             Technology executive and architect with 15 years building, scaling, and leading IT operations. Known for delivering enterprise-grade reliability without traditional enterprise-grade cost structures. Proven record of entering low-maturity environments and standing up the governance, vendor leverage, and delivery systems required to scale.
           </p>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4" role="group" aria-label="Download documents">
-             <a
-              href="Christian_Matthews_CV_2026.pdf"
-              target="_blank" rel="noopener noreferrer"
-              aria-label="Download Resume (PDF, opens in new tab)"
-              className="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-slate-200 transition flex items-center gap-2"
-            >
-              <Download size={18} /> Resume
-            </a>
+          <div className="flex flex-col items-center gap-4" role="group" aria-label="Download documents">
 
-            <a
-              href="Christian_Matthews_Cover_Letter_2026.pdf"
-              target="_blank" rel="noopener noreferrer"
-              aria-label="Download Cover Letter (PDF, opens in new tab)"
-              className="px-6 py-3 rounded-full border border-slate-700 text-slate-300 hover:bg-slate-800 transition flex items-center gap-2"
-            >
-              <FileText size={18} /> Cover Letter
-            </a>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-3" role="group" aria-label="Curriculum Vitae downloads">
+              <a
+                href="Christian_Matthews_Leadership_CV_2026.pdf"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="Download Leadership CV (PDF, opens in new tab)"
+                className="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-slate-200 transition flex items-center gap-2 shadow-lg shadow-blue-500/10"
+              >
+                <Download size={18} /> Leadership CV
+                <span className="hidden md:inline text-xs font-medium text-slate-500 border-l border-slate-300 pl-2 ml-1">Executive Track</span>
+              </a>
 
-            <a
-              href="Christian_Matthews_Executive_Summary_2026.pdf"
-              target="_blank" rel="noopener noreferrer"
-              aria-label="Download Executive Summary (PDF, opens in new tab)"
-              className="px-6 py-3 rounded-full border border-slate-700 text-slate-300 hover:bg-slate-800 transition flex items-center gap-2"
-            >
-              <FileText size={18} /> Executive Summary
-            </a>
+              <a
+                href="Christian_Matthews_Engineering_CV_2026.pdf"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="Download Engineering CV (PDF, opens in new tab)"
+                className="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-slate-200 transition flex items-center gap-2 shadow-lg shadow-teal-500/10"
+              >
+                <Download size={18} /> Engineering CV
+                <span className="hidden md:inline text-xs font-medium text-slate-500 border-l border-slate-300 pl-2 ml-1">Hands-On Track</span>
+              </a>
+            </div>
+
+            <div className="flex flex-col md:flex-row items-center justify-center gap-3" role="group" aria-label="Supporting documents">
+              <a
+                href="Christian_Matthews_Cover_Letter_2026.pdf"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="Download Cover Letter (PDF, opens in new tab)"
+                className="px-5 py-2 rounded-full border border-slate-700 text-slate-300 text-sm hover:bg-slate-800 hover:border-slate-600 transition flex items-center gap-2"
+              >
+                <FileText size={16} /> Cover Letter
+              </a>
+
+              <a
+                href="Christian_Matthews_Executive_Summary_2026.pdf"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="Download Executive Summary (PDF, opens in new tab)"
+                className="px-5 py-2 rounded-full border border-slate-700 text-slate-300 text-sm hover:bg-slate-800 hover:border-slate-600 transition flex items-center gap-2"
+              >
+                <FileText size={16} /> Executive Summary
+              </a>
+            </div>
+
           </div>
         </div>
       </section>
@@ -311,7 +328,7 @@
             isRight={true}
             role="Founder & CEO"
             company="Cedar Infrastructure Group"
-            logoUrl="https://hirecedar.com/cedar_lockup_black.png"
+            logoUrl="https://hirecedar.com/cedar_wordmark_black.svg"
             companyUrl="https://hirecedar.com"
             brandColor="#1e3a5f"
             period="Mar 2026 – Present"
