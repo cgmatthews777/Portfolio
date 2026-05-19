@@ -123,6 +123,7 @@
             </a>
             <ul className="hidden md:flex space-x-8 text-sm font-medium text-slate-300 list-none m-0 p-0">
               <li><a href="#impact" className="hover:text-blue-400 transition">Impact</a></li>
+              <li><a href="#current-role" className="hover:text-blue-400 transition">Cedar</a></li>
               <li><a href="#experience" className="hover:text-blue-400 transition">Track Record</a></li>
               <li><a href="#education" className="hover:text-blue-400 transition">Education</a></li>
               <li><a href="#about" className="hover:text-blue-400 transition">About</a></li>
@@ -237,6 +238,92 @@
       );
     };
 
+    const CurrentRole = () => {
+      const highlights = [
+        { title: "Full-Lifecycle Ownership", body: "Lead client development, executive relationships, partner strategy, engagement scoping, pricing, contract negotiation, engineer recruiting, subcontractor alignment, and delivery oversight." },
+        { title: "Federal Posture", body: "Established federal contracting readiness with SAM.gov registration, CAGE 1APC0, and UEI KWXKBP6CNVJ9, enabling cleared engineer placement and subcontracting support for DoD and federal civilian programs." },
+        { title: "Delivery Across the Stack", body: "Senior delivery across enterprise network engineering, systems and cloud architecture, virtualization, security infrastructure, multi-site rollouts, M&A IT integration, and fractional CIO / interim IT director leadership." },
+        { title: "Active Engagements", body: "Current work spans VMware, Cisco, Aruba, Palo Alto, and Fortinet, including ESXi migrations, network operations, fractional leadership, and cleared engineer placement for federal primes and enterprise clients." }
+      ];
+
+      return (
+        <section id="current-role" aria-labelledby="current-role-heading" className="relative py-24 px-6 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border-y border-slate-800 overflow-hidden">
+          <div className="absolute inset-0 opacity-20 pointer-events-none" aria-hidden="true">
+            <div className="absolute top-0 left-1/4 w-[32rem] h-[32rem] bg-blue-600 rounded-full blur-[140px]"></div>
+            <div className="absolute bottom-0 right-1/4 w-[32rem] h-[32rem] bg-teal-500 rounded-full blur-[140px]"></div>
+          </div>
+
+          <div className="max-w-6xl mx-auto relative z-10">
+            <div className="flex flex-col items-center text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-slate-800/80 backdrop-blur border border-slate-700 text-teal-400 text-xs font-bold tracking-widest uppercase">
+                <span className="relative flex h-2 w-2" aria-hidden="true">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-400"></span>
+                </span>
+                Current Role
+              </div>
+
+              <h2 id="current-role-heading" className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                Founder &amp; CEO
+              </h2>
+
+              <a
+                href="https://hirecedar.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Cedar Infrastructure Group website (opens in new tab)"
+                className="group inline-block mb-5 rounded-2xl transition duration-300 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              >
+                <div className="bg-white px-10 md:px-14 py-6 md:py-7 rounded-2xl shadow-2xl shadow-blue-500/20 ring-1 ring-slate-700/40 group-hover:ring-blue-400/60 group-hover:shadow-blue-500/30 transition">
+                  <img
+                    src="https://hirecedar.com/cedar_wordmark_black.svg"
+                    alt="Cedar Infrastructure Group"
+                    className="h-14 md:h-20 w-auto"
+                  />
+                </div>
+              </a>
+
+              <p className="text-slate-400 text-sm">
+                <time>Mar 2026 – Present</time>
+                <span className="mx-2 text-slate-700" aria-hidden="true">·</span>
+                Cedar Infrastructure Group
+              </p>
+            </div>
+
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <p className="text-base md:text-lg text-slate-300 leading-relaxed">
+                Founded Cedar as an infrastructure consulting and technical talent firm supporting enterprise IT organizations, CIO offices, federal primes, defense agencies, and VAR partners across commercial and public-sector markets. Cedar operates where technical credibility, customer trust, and execution discipline matter most, built by a practitioner who understands how work is sold, how delivery risk is carried, and how projects succeed or fail in the field.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto" role="list" aria-label="Cedar engagement areas">
+              {highlights.map((item, i) => (
+                <div key={i} role="listitem" className="glass-card p-6 rounded-xl hover:border-blue-500/30 transition duration-300">
+                  <h3 className="text-base font-bold text-white mb-2 flex items-center gap-2">
+                    <span className="text-blue-500" aria-hidden="true">▹</span>
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-slate-300 leading-relaxed pl-6">{item.body}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <a
+                href="https://hirecedar.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit hirecedar.com (opens in new tab)"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold transition shadow-lg shadow-blue-600/30"
+              >
+                Visit hirecedar.com <ArrowRight size={16} />
+              </a>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
     const ExperienceItem = ({ role, subRole, company, logoUrl, companyUrl, period, description, highlights, isRight, brandColor }) => {
       const [imgError, setImgError] = useState(false);
 
@@ -313,35 +400,18 @@
     const Timeline = () => (
       <section id="experience" aria-label="Professional experience" className="py-24 px-6 bg-slate-950 relative">
         <div className="text-center mb-16">
+          <div className="inline-block px-3 py-1 mb-4 rounded-full bg-slate-800 border border-slate-700 text-slate-400 text-xs font-bold tracking-widest uppercase">
+            The Path Here
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Professional Experience</h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            A trajectory defined by rapid ascent, revenue protection, and strategic turnarounds.
+            Fifteen years of hands-on delivery, executive operations, and revenue protection at scale, leading to Cedar.
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto relative">
           <div className="timeline-line hidden md:block" aria-hidden="true"></div>
           <ol className="relative list-none m-0 p-0" aria-label="Career timeline, most recent first">
-
-          <li>{/* CEDAR INFRASTRUCTURE GROUP */}
-          <ExperienceItem
-            isRight={true}
-            role="Founder & CEO"
-            company="Cedar Infrastructure Group"
-            logoUrl="https://hirecedar.com/cedar_wordmark_black.svg"
-            companyUrl="https://hirecedar.com"
-            brandColor="#1e3a5f"
-            period="Mar 2026 – Present"
-            description="Founded Cedar as an infrastructure consulting and technical talent firm supporting enterprise IT organizations, CIO offices, federal primes, defense agencies, and VAR partners across commercial and public-sector markets. Cedar operates where technical credibility, customer trust, and execution discipline matter most, built by a practitioner who understands how work is sold, how delivery risk is carried, and how projects succeed or fail in the field."
-            highlights={[
-              { title: "Full-Lifecycle Ownership", body: "Lead the business across client development, executive relationships, partner strategy, engagement scoping, pricing, contract negotiation, engineer recruiting, subcontractor alignment, and delivery oversight." },
-              { title: "Federal Posture", body: "Established federal contracting readiness with SAM.gov registration, CAGE 1APC0, and UEI KWXKBP6CNVJ9, enabling cleared engineer placement and subcontracting support for DoD and federal civilian programs." },
-              { title: "Service Catalog", body: "Stood up delivery across enterprise network engineering, systems and cloud architecture, virtualization and data center modernization, security infrastructure, multi-site field services, M&A IT integration, and fractional CIO / interim IT director leadership." },
-              { title: "Active Engagements", body: "Senior infrastructure delivery across VMware, Cisco, Aruba, Palo Alto, and Fortinet, including ESXi migrations, network operations, multi-site rollouts, fractional leadership, and cleared engineer placement for federal primes and enterprise clients." },
-              { title: "Partner Strategy", body: "Engaged on subcontracting partnerships, OEM relationships, enterprise network/systems engineering programs, federal delivery support, and fractional leadership conversations across commercial and public-sector markets." }
-            ]}
-          />
-          </li>
 
           <li>{/* BURWOOD: BMS */}
           <ExperienceItem
@@ -834,6 +904,7 @@
         <main id="main-content" tabIndex="-1" style={{ scrollMarginTop: '4rem' }}>
           <Hero />
           <Metrics />
+          <CurrentRole />
           <Timeline />
           <Education />
           <AboutMe />
