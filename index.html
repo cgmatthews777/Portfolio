@@ -287,11 +287,14 @@
                 aria-label="Visit Cedar Infrastructure Group website (opens in new tab)"
                 className="group inline-block mb-5 transition duration-300 hover:opacity-90 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded"
               >
-                <img
-                  src="https://hirecedar.com/cedar_lockup_white.png"
-                  alt="Cedar Infrastructure Group"
-                  className="h-14 md:h-20 w-auto mx-auto"
-                />
+                <picture>
+                  <source media="(min-width: 768px)" srcSet="https://hirecedar.com/cedar_lockup_white.png" />
+                  <img
+                    src="https://hirecedar.com/cedar_wordmark_white.svg"
+                    alt="Cedar Infrastructure Group"
+                    className="h-12 md:h-20 w-auto mx-auto"
+                  />
+                </picture>
               </a>
 
               <p className="text-slate-400 text-sm mt-2">
