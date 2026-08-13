@@ -144,7 +144,7 @@
     );
 
     const Hero = () => (
-      <section aria-label="Introduction" className="relative pt-32 pb-16 px-6 min-h-[85vh] flex items-center justify-center overflow-hidden">
+      <section aria-label="Introduction" className="relative pt-40 pb-24 px-6 flex items-center justify-center overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20" aria-hidden="true">
           <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-blue-600 rounded-full blur-[100px]"></div>
           <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-teal-500 rounded-full blur-[100px]"></div>
@@ -163,7 +163,7 @@
             Senior IT infrastructure leader, engineer and architect. Deep M&A implementation experience across healthcare, hospitality, manufacturing, and carrier voice. Hands-on with VMware (ESXi, vSphere, vCenter), Cisco and Aruba networking, SD-WAN (VeloCloud, Meraki), Cradlepoint LTE, multi-site migration programs, and IT construction / low-voltage execution.
           </p>
 
-          {/* Download buttons hidden until refreshed PDFs are uploaded - set the guard below back to true to restore */}
+          {/* Download buttons hidden until refreshed PDFs are uploaded - set the guard below back to true to restore, and restore min-h-[85vh] pt-32 pb-16 on the Hero section */}
           {false && (
           <div className="flex flex-col items-center gap-4" role="group" aria-label="Download documents">
             {/* RESUME DOWNLOADS TEMPORARILY DISABLED 2026-08-13: PDFs being updated
