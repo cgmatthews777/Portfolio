@@ -164,48 +164,46 @@
           </p>
 
           <div className="flex flex-col items-center gap-4" role="group" aria-label="Download documents">
+            {/* RESUME DOWNLOADS TEMPORARILY DISABLED 2026-08-13: PDFs being updated
+                (Burwood condensed role + Explore $3.1M budget / $750K savings).
+                To restore: convert spans back to <a href="..."> - original hrefs:
+                Christian_Matthews_Leadership_CV_2026.pdf / _Engineering_CV_ / _Cover_Letter_ / _Executive_Summary_ */}
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-3" role="group" aria-label="Curriculum Vitae downloads">
-              <a
-                href="Christian_Matthews_Leadership_CV_2026.pdf"
-                target="_blank" rel="noopener noreferrer"
-                aria-label="Download Leadership CV (PDF, opens in new tab)"
-                className="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-slate-200 transition flex items-center gap-2 shadow-lg shadow-blue-500/10"
+              <span
+                aria-disabled="true" title="Being updated - back shortly"
+                className="bg-white/60 text-slate-500 px-6 py-3 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-blue-500/10 cursor-not-allowed select-none"
               >
                 <Download size={18} /> Leadership CV
-                <span className="hidden md:inline text-xs font-medium text-slate-500 border-l border-slate-300 pl-2 ml-1">Executive Track</span>
-              </a>
+                <span className="hidden md:inline text-xs font-medium text-slate-400 border-l border-slate-300 pl-2 ml-1">Executive Track</span>
+              </span>
 
-              <a
-                href="Christian_Matthews_Engineering_CV_2026.pdf"
-                target="_blank" rel="noopener noreferrer"
-                aria-label="Download Engineering CV (PDF, opens in new tab)"
-                className="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-slate-200 transition flex items-center gap-2 shadow-lg shadow-teal-500/10"
+              <span
+                aria-disabled="true" title="Being updated - back shortly"
+                className="bg-white/60 text-slate-500 px-6 py-3 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-teal-500/10 cursor-not-allowed select-none"
               >
                 <Download size={18} /> Engineering CV
-                <span className="hidden md:inline text-xs font-medium text-slate-500 border-l border-slate-300 pl-2 ml-1">Hands-On Track</span>
-              </a>
+                <span className="hidden md:inline text-xs font-medium text-slate-400 border-l border-slate-300 pl-2 ml-1">Hands-On Track</span>
+              </span>
             </div>
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-3" role="group" aria-label="Supporting documents">
-              <a
-                href="Christian_Matthews_Cover_Letter_2026.pdf"
-                target="_blank" rel="noopener noreferrer"
-                aria-label="Download Cover Letter (PDF, opens in new tab)"
-                className="px-5 py-2 rounded-full border border-slate-700 text-slate-300 text-sm hover:bg-slate-800 hover:border-slate-600 transition flex items-center gap-2"
+              <span
+                aria-disabled="true" title="Being updated - back shortly"
+                className="px-5 py-2 rounded-full border border-slate-800 text-slate-500 text-sm flex items-center gap-2 cursor-not-allowed select-none"
               >
                 <FileText size={16} /> Cover Letter
-              </a>
+              </span>
 
-              <a
-                href="Christian_Matthews_Executive_Summary_2026.pdf"
-                target="_blank" rel="noopener noreferrer"
-                aria-label="Download Executive Summary (PDF, opens in new tab)"
-                className="px-5 py-2 rounded-full border border-slate-700 text-slate-300 text-sm hover:bg-slate-800 hover:border-slate-600 transition flex items-center gap-2"
+              <span
+                aria-disabled="true" title="Being updated - back shortly"
+                className="px-5 py-2 rounded-full border border-slate-800 text-slate-500 text-sm flex items-center gap-2 cursor-not-allowed select-none"
               >
                 <FileText size={16} /> Executive Summary
-              </a>
+              </span>
             </div>
+
+            <p className="text-xs text-slate-500 mt-1">Documents are being refreshed and will be back shortly.</p>
 
           </div>
         </div>
@@ -488,50 +486,30 @@
           <div className="timeline-line hidden md:block" aria-hidden="true"></div>
           <ol className="relative list-none m-0 p-0" aria-label="Career timeline, most recent first">
 
-          <li>{/* BURWOOD: BMS */}
-          <ExperienceItem
-            isRight={false}
-            role="Operations Engineering Lead"
-            subRole="NOC & Service Desk"
-            company="Burwood Group"
-            logoUrl="https://images.squarespace-cdn.com/content/v1/5a09abcb90bcce4bd5518c91/1515690831119-YJSK13DSLY1DM9RY7WWC/burwood-logo.png?format=1500w"
-            brandColor="#16a34a" 
-            period="Jan 2026 – Mar 2026"
-            description="Selected by ownership to lead a service operations reset across NOC and Service Desk along with piloting a hybrid model integrating Professional Services consulting and Managed Services delivery."
-            highlights={[
-              { title: "Service Maturity", body: "Established service standards, escalation frameworks, and QA guardrails across NOC and Service Desk operations to improve consistency, accountability, and service readiness." },
-              { title: "AI Performance Auditing", body: "Designed and launched an automated ticket auditing platform using Power Automate, AI Builder (GPT-4.1), and Dataverse that scored closed ServiceNow tickets nightly, delivered coaching feedback to team leads in Teams, and replaced opinionated QA with rubric measurement and weekly performance summaries." },
-              { title: "Talent Calibration", body: "Assessed team capability, corrected role fit, promoted a Tier 1 engineer into a Client Success Manager path, backfilled and onboarded his replacement to independent production, and identified another resource for full-time conversion after pushing targeted certification alignment." },
-              { title: "Security Governance Opportunity", body: "Identified a major gap in vulnerability and patch governance, built the business case for Tenable-based visibility across switches, endpoints, and infrastructure, and modeled an estimated 4–5% annual margin uplift against the 2026 forecast through attachable managed security resale." },
-              { title: "Cost Engineering", body: "Cut jumpbox hardware costs materially by replacing oversized ~$2K Supermicro mini servers with lower-cost systems where ECC was unnecessary, halving per-site hardware spend." },
-              { title: "Operational Visibility", body: "Refreshed stale ServiceNow dashboards to give team leads and the director usable business telemetry, identified priority and child-ticket handling defects distorting SLA and on-call reporting, and improved ScienceLogic SL1 ticket links so engineers could open directly to the affected device for faster triage." }
-            ]}
-          />
-          </li>
-
           <li>{/* BURWOOD: PRACTICE LEAD */}
           <ExperienceItem
-            isRight={true}
+            isRight={false}
             role="Practice Lead"
             subRole="Enterprise Networking & Field Services"
             company="Burwood Group"
             logoUrl="https://images.squarespace-cdn.com/content/v1/5a09abcb90bcce4bd5518c91/1515690831119-YJSK13DSLY1DM9RY7WWC/burwood-logo.png?format=1500w"
             brandColor="#16a34a"
-            period="Aug 2024 – Dec 2025"
-            description="Founded and scaled Field Services while retaining delivery accountability for Enterprise Networking."
+            period="Aug 2024 – Mar 2026"
+            description="Led enterprise networking delivery while building and operationalizing a dedicated field services capability, spanning delivery standards, presales validation, capacity planning, and operational alignment across architecture, implementation, and field execution. Tapped by leadership in January 2026 to drive cross-practice utilization alignment between Professional Services and Managed Services, leading the BMS NOC and IT Service Desk teams for the 90 days preceding the sale of the company."
             highlights={[
-              { title: "P&L / Targets", body: "Co-managed Enterprise Networking against a $5.6M annual practice target while independently building Field Services into a $1.6M net-new revenue stream." },
-              { title: "Practice Creation", body: "Built Field Services from 0 to 25 direct reports to reduce third-party contractor reliance and capture margin leakage (Field Nation / one-offs)." },
-              { title: "Presales Rigor", body: "Implemented rigorous auditing against solutions architects in presales to prevent scope creep and stress-testing delivery realism for true cost-to-serve before contract signature." },
-              { title: "Margin Discipline", body: "Instituted conservative delivery constraints (capacity, travel costs, risk allowances) to ensure 10–15% higher realized margin than baseline models." },
-              { title: "Scaled Frameworks", body: "Adapted proprietary M&A migration framework for an $800M VC-backed financial services startup, enabling rapid multi-state acquisition integration." }
+              { title: "Practice Creation", body: "Built Field Services practice from 0 to 25 direct reports, generating $1.6M net-new revenue in under 16 months." },
+              { title: "P&L / Targets", body: "Co-managed Enterprise Networking against a $5.6M annual practice target." },
+              { title: "Margin Discipline", body: "Delivered 10–15% margin uplift through presales validation and delivery discipline." },
+              { title: "Scaled Frameworks", body: "Adapted proprietary M&A migration framework for an $800M VC-backed financial services startup, enabling rapid multi-state acquisition integration." },
+              { title: "AI Performance Auditing", body: "Designed and built an AI-powered ticket auditing system using Power Automate, AI Builder (GPT-4.1), and Dataverse that automatically scored closed ServiceNow tickets nightly and delivered coaching feedback to team leads via Teams." },
+              { title: "Service Operations Reset", body: "Established service maturity standards and escalation frameworks across NOC and Service Desk operations, refreshed ServiceNow dashboards and ScienceLogic SL1 ticket linking for faster engineer triage, and modeled 4–5% margin uplift via Tenable-based managed security resale for the 2026 forecast." }
             ]}
           />
           </li>
 
           <li>{/* BURWOOD: TEAM LEAD */}
           <ExperienceItem
-            isRight={false}
+            isRight={true}
             role="Team Lead"
             subRole="Enterprise Networking"
             company="Burwood Group"
@@ -551,7 +529,7 @@
 
           <li>{/* BURWOOD: ARCHITECT */}
           <ExperienceItem
-            isRight={true}
+            isRight={false}
             role="Technical Architect"
             subRole="Enterprise Networking & Hybrid Infrastructure (Contractor)"
             company="Burwood Group"
@@ -571,7 +549,7 @@
 
           <li>{/* EXPLORE INDUSTRIES */}
           <ExperienceItem
-            isRight={false}
+            isRight={true}
             role="Global IT Director"
             subRole="(Promoted from IT Support Manager, North America)"
             company="Explore Industries / Leisure Pools"
@@ -583,15 +561,15 @@
               { title: "Cloud & Infrastructure Modernization", body: "Architected a hybrid infrastructure, integrating on-prem AD with M365 and Azure Entra ID to ensure high availability for corporate and manufacturing environments." },
               { title: "Secure Remote Access", body: "Designed and managed Azure Virtual Networks (VNets) to deploy Azure Virtual Desktop (AVD) environments, enabling secure, domain-joined remote access for support teams on personal devices." },
               { title: "M&A Integration", body: "Built M365 tenants from scratch and led data library migrations to the cloud, seamlessly integrating employees and assets from acquired companies. Company acquired/greenfielded 13 manufacturing facilities globally during my tenure." },
-              { title: "Infrastructure Capital Arbitrage", body: "Replaced subscription-heavy Cisco Meraki stacks with high-performance Ubiquiti architecture across manufacturing sites. Eliminated licensing fees while improving throughput, yielding $500k in validated savings." },
-              { title: "Global P&L Authority", body: "Managed a $2.1M operational budget, delivering executive-level reporting on global capital allocation, vendor consolidation, and opex reduction." }
+              { title: "Infrastructure Capital Arbitrage", body: "Replaced subscription-heavy Cisco Meraki stacks with high-performance Ubiquiti architecture across manufacturing sites. Eliminated licensing fees while improving throughput, yielding $750K in verified savings." },
+              { title: "Global P&L Authority", body: "Managed a $3.1M operational budget, delivering executive-level reporting on global capital allocation, vendor consolidation, and opex reduction." }
             ]}
           />
           </li>
 
           <li>{/* BENETEAU */}
           <ExperienceItem
-            isRight={true}
+            isRight={false}
             role="Senior Network Administrator"
             company="Beneteau"
             logoUrl="https://storage.googleapis.com/endurance-apps-liip/media/cache/beneteau_no_filter_grid_fs/6316efb35d7cbf6ae30574c1"
@@ -610,7 +588,7 @@
 
           <li>{/* SEA ISLAND */}
           <ExperienceItem
-            isRight={false}
+            isRight={true}
             role="Director of IT / Asst. Director of AV"
             company="Sea Island Resort"
             logoUrl="https://www.seaisland.com/content/uploads/2024/12/Sea-Island-640x768.png"
@@ -629,7 +607,7 @@
 
           <li>{/* WINDSTREAM */}
           <ExperienceItem
-            isRight={true}
+            isRight={false}
             role="Team Lead"
             subRole="Reseller & CLEC Support"
             company="Windstream Enterprise"
