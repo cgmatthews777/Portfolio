@@ -163,6 +163,8 @@
             Technology executive and architect with 15 years building, scaling, and leading IT operations. Known for delivering enterprise-grade reliability without traditional enterprise-grade cost structures. Proven record of entering low-maturity environments and standing up the governance, vendor leverage, and delivery systems required to scale.
           </p>
 
+          {/* Download buttons hidden until refreshed PDFs are uploaded - set the guard below back to true to restore */}
+          {false && (
           <div className="flex flex-col items-center gap-4" role="group" aria-label="Download documents">
             {/* RESUME DOWNLOADS TEMPORARILY DISABLED 2026-08-13: PDFs being updated
                 (Burwood condensed role + Explore $3.1M budget / $750K savings).
@@ -206,6 +208,7 @@
             <p className="text-xs text-slate-500 mt-1">Documents are being refreshed and will be back shortly.</p>
 
           </div>
+          )}
         </div>
       </section>
     );
